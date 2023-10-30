@@ -2,6 +2,7 @@
 namespace App\Controllers;
 
 use App\Core\View;
+
 class Security{
 
     public function login(): void
