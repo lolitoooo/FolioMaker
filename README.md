@@ -96,4 +96,4 @@ Pour maintenir une trace claire et lisible des modifications, nous utilisons une
 
 Le nommage des commits doit suivre ce format : `catégorie: description de la modification`. La description doit être concise et ne pas dépasser 50 caractères. Par exemple, un commit pourrait être nommé `feat: ajout de la fonctionnalité de tri`.
 
-Cela permet à toute personne qui regarde l'historique des commits de comprendre rapidement ce qu'un commit particulier fait sans avoir à regarder le code lui-même.
+Cela permet à toute personne qui regarde l'historique des commits de comprendre rapidement ce qu'un commit particulier fait sans avoir à regarder le code lui-même. 
