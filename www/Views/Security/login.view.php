@@ -1,5 +1,5 @@
-<form class="login">
+<form class="login" method="POST">
   <input class="formLoginInput" type="text" placeholder="Username">
   <input class="formLoginInput" type="password" placeholder="Password">
-  <button class="formLoginButton">Login</button>
+  <input type="submit" class="formLoginButton" value="Login">
 </form>
