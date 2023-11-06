@@ -20,4 +20,4 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - ./script/script.sql:/script/script.sql
+      - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d

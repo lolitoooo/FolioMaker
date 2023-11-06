@@ -1,5 +1,5 @@
 -- Supprimer la table user si elle existe
-DROP TABLE IF EXISTS user;
+DROP TABLE IF EXISTS users;
 
 -- Créer la table user avec les colonnes id, name, lastname, mail, et password
 CREATE TABLE users (
