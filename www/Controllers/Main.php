@@ -8,7 +8,7 @@ class Main{
 
     public function home(): void
     {
-        new View("Security/login", "back");
+        new View("Security/login", "login");
     }
 
     public function aboutUs(): void

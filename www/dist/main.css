@@ -15,14 +15,30 @@
   border: 2px solid #000;
   border-radius: 0.5rem;
 }
-.form_container .form_installer .form_input {
+.form_container .form_installer .installer_container {
+  display: flex;
+  justify-content: center;
+}
+.form_container .form_installer .installer_container .ste_container, .form_container .form_installer .installer_container .bdd_container {
+  display: flex;
+  flex-direction: column;
   width: 50%;
+  text-align: justify;
+  align-items: center;
+}
+.form_container .form_installer .installer_container .ste_container .align_text, .form_container .form_installer .installer_container .bdd_container .align_text {
+  display: flex;
+  flex-direction: column;
+  width: 85%;
+}
+.form_container .form_installer .installer_container .ste_container .form_input, .form_container .form_installer .installer_container .bdd_container .form_input {
+  width: 75%;
   padding: 0.5rem;
 }
-.form_container .form_installer .form_input {
+.form_container .form_installer .installer_container .ste_container .form_input, .form_container .form_installer .installer_container .bdd_container .form_input {
   margin: 0.5rem 0 1rem 0;
 }
-.form_container .form_installer .button {
+.form_container .form_installer .installer_container .ste_container .button, .form_container .form_installer .installer_container .bdd_container .button {
   width: 25%;
   margin-left: auto;
   padding: 0.375rem;
