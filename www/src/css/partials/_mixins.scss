@@ -1,0 +1,15 @@
+@mixin transform($transform) {
+    transform: $transform;
+    -webkit-transform: $transform;
+  }
+  
+  @mixin transition($transitions...) {
+    transition: $transitions;
+    -webkit-transition: $transitions;
+  }
+  
+  @mixin keyframes($name) {
+    @keyframes #{$name} {
+      @content;
+    }
+  }

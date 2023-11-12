@@ -22,7 +22,3 @@
   controller: Installer
   action: setup_site
 
-/installer_bdd:
-  controller: Installer
-  action: setup_bdd
-

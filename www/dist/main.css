@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  background-color: #F2F2F2;
 }
 
 .form_container {
@@ -14,17 +15,120 @@
   border: 2px solid #000;
   border-radius: 0.5rem;
 }
-.form_container .form_installer .form_input {
+.form_container .form_installer .installer_container {
+  display: flex;
+  justify-content: center;
+}
+.form_container .form_installer .installer_container .ste_container, .form_container .form_installer .installer_container .bdd_container {
+  display: flex;
+  flex-direction: column;
   width: 50%;
+  text-align: justify;
+  align-items: center;
+}
+.form_container .form_installer .installer_container .ste_container .align_text, .form_container .form_installer .installer_container .bdd_container .align_text {
+  display: flex;
+  flex-direction: column;
+  width: 85%;
+}
+.form_container .form_installer .installer_container .ste_container .form_input, .form_container .form_installer .installer_container .bdd_container .form_input {
+  width: 75%;
   padding: 0.5rem;
 }
-.form_container .form_installer .form_input {
+.form_container .form_installer .installer_container .ste_container .form_input, .form_container .form_installer .installer_container .bdd_container .form_input {
   margin: 0.5rem 0 1rem 0;
 }
-.form_container .form_installer .button {
+.form_container .form_installer .installer_container .ste_container .button, .form_container .form_installer .installer_container .bdd_container .button {
   width: 25%;
   margin-left: auto;
   padding: 0.375rem;
+}
+
+.login {
+  overflow: hidden;
+  background-color: white;
+  padding: 40px 30px 30px 30px;
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  transition: transform 300ms, box-shadow 300ms;
+  -webkit-transition: transform 300ms, box-shadow 300ms;
+  box-shadow: 5px 10px 10px rgba(2, 128, 144, 0.2);
+}
+.login::before, .login::after {
+  content: "";
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-top-left-radius: 40%;
+  border-top-right-radius: 45%;
+  border-bottom-left-radius: 35%;
+  border-bottom-right-radius: 40%;
+  z-index: -1;
+}
+.login::before {
+  left: 40%;
+  bottom: -130%;
+  background-color: #f45b69;
+  animation: wawes 6s infinite linear;
+}
+@keyframes wawes {
+  from {
+    transform: rotate(0);
+    -webkit-transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+  }
+}
+.login::after {
+  left: 35%;
+  bottom: -125%;
+  background-color: rgba(2, 128, 144, 0.2);
+  animation: wawes 7s infinite;
+}
+@keyframes wawes {
+  from {
+    transform: rotate(0);
+    -webkit-transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+  }
+}
+.login > .formLoginInput {
+  display: block;
+  border-radius: 5px;
+  font-size: 16px;
+  background: white;
+  width: 100%;
+  border: 0;
+  padding: 10px 10px;
+  margin: 15px -10px;
+}
+.login > .formLoginButton {
+  cursor: pointer;
+  color: #fff;
+  font-size: 16px;
+  text-transform: uppercase;
+  width: 80px;
+  border: 0;
+  padding: 10px 0;
+  margin-top: 10px;
+  margin-left: -5px;
+  border-radius: 5px;
+  background-color: rgb(244, 91, 105);
+  transition: background-color 300ms;
+  -webkit-transition: background-color 300ms;
+}
+.login > .formLoginButton:hover {
+  background-color: #f24353;
 }
 
 /*# sourceMappingURL=main.css.map */
