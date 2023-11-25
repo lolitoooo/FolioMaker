@@ -1,6 +1,3 @@
-<?php 
-require_once __DIR__ . '/../../functions/database/connect.php';
-?>
 <!DOCTYPE html>
 <html lang="fr">
     <head>
