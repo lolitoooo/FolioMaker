@@ -1,9 +1,8 @@
--- Supprimer la table user si elle existe
-DROP TABLE IF EXISTS users;
+-- setup.sql
 
 -- Créer la table user avec les colonnes id, name, lastname, mail, et password
-CREATE TABLE users (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+CREATE TABLE IF NOT EXISTS users (
+    id SERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     lastname VARCHAR(255) NOT NULL,
     mail VARCHAR(255) NOT NULL,

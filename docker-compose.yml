@@ -12,13 +12,33 @@ services:
       - ./server/php.ini:/usr/local/etc/php/php.ini
 
   db:
-    image: mysql:5.7
+    image: postgres:latest
     environment:
-      MYSQL_ROOT_PASSWORD: foliomakerroot
-      MYSQL_DATABASE: foliomakerdb
-      MYSQL_USER: foliomakeruser
-      MYSQL_PASSWORD: foliomakerpsw
+      POSTGRES_ROOT_PASSWORD: foliomakerroot
+      POSTGRES_DATABASE: foliomakerdb
+      POSTGRES_USER: foliomakeruser
+      POSTGRES_PASSWORD: foliomakerpsw
     ports:
       - "3306:3306"
     volumes:
       - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+    networks:
+      - pg_network
+  
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: pgadmin_container
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@foliomaker.com
+      PGADMIN_DEFAULT_PASSWORD: foliomakeradmin
+      PGADMIN_LISTEN_PORT: 80
+    ports:
+      - "5050:80"
+    networks:
+      - pg_network
+    depends_on:
+      - db
+
+networks:
+  pg_network:
+    driver: bridge
