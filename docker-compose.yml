@@ -13,13 +13,14 @@ services:
 
   db:
     image: postgres:latest
+    restart: always
     environment:
       POSTGRES_ROOT_PASSWORD: foliomakerroot
       POSTGRES_DATABASE: foliomakerdb
       POSTGRES_USER: foliomakeruser
       POSTGRES_PASSWORD: foliomakerpsw
     ports:
-      - "3306:3306"
+      - "5432:5432"
     volumes:
       - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
     networks:

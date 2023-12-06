@@ -1,5 +1,11 @@
 -- setup.sql
 
+-- Créer la base de données foliomakerdb
+CREATE DATABASE foliomakerdb;
+
+-- Utiliser la base de données
+\c foliomakerdb;
+
 -- Créer la table user avec les colonnes id, name, lastname, mail, et password
 CREATE TABLE IF NOT EXISTS users (
     id SERIAL PRIMARY KEY,
@@ -16,3 +22,4 @@ INSERT INTO users (name, lastname, mail, password) VALUES
     ('Alice', 'Johnson', 'alice.johnson@example.com', 'motdepasse3'),
     ('Bob', 'Williams', 'bob.williams@example.com', 'motdepasse4'),
     ('Eve', 'Brown', 'eve.brown@example.com', 'motdepasse5');
+

@@ -10,7 +10,7 @@ class DB
     public function __construct()
     {
         try {
-            $this->conn = new \PDO("mysql:host=mariadb;dbname=foliomakerdb", "foliomakeruser", "foliomakerpsw");
+            $this->conn = new \PDO("psql:host=db;dbname=foliomakerdb", "foliomakeruser", "foliomakerpsw");
             echo "Connected successfully <br>";
         } catch (\PDOException $e) {
             echo $e->getMessage();
@@ -29,17 +29,17 @@ class DB
         return $this->table;
     }
 
-    public function populate(int $id): array
-    {
-        // Populate l'ojet avec les données de la table
-        $sql = "SELECT * FROM " . $this->tableName() . " WHERE id = :id";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->bindValue(':id', $id);
-        $stmt->execute();
-        $page = $stmt->fetch();
+    // public function populate(int $id): array
+    // {
+    //     // Populate l'ojet avec les données de la table
+    //     $sql = "SELECT * FROM " . $this->tableName() . " WHERE id = :id";
+    //     $stmt = $this->conn->prepare($sql);
+    //     $stmt->bindValue(':id', $id);
+    //     $stmt->execute();
+    //     $page = $stmt->fetch();
     
-        return $page;
-    }    
+    //     return $page;
+    // }    
 
     public function save(array $data, ?int $id): void
     {
