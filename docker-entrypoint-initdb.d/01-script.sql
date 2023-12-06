@@ -9,10 +9,13 @@ CREATE DATABASE foliomakerdb;
 -- Créer la table user avec les colonnes id, name, lastname, mail, et password
 CREATE TABLE IF NOT EXISTS users (
     id SERIAL PRIMARY KEY,
-    name VARCHAR(255) NOT NULL,
-    lastname VARCHAR(255) NOT NULL,
-    mail VARCHAR(255) NOT NULL,
-    password VARCHAR(255) NOT NULL
+    firstname varchar(25) NOT NULL,
+    mail varchar(320) NOT NULL,
+    password varchar(255) NOT NULL,
+    status tinyint(4) NOT NULL DEFAULT 0,
+    isDeleted tinyint(1) NOT NULL DEFAULT 0,
+    insertedAt timestamp NOT NULL DEFAULT current_timestamp(),
+    updateedAt timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
 );
 
 -- Insérer 5 enregistrements avec des noms, prénoms, mails et mots de passe fictifs
