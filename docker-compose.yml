@@ -10,6 +10,8 @@ services:
       - ./server/000-default.conf:/etc/apache2/sites-available/000-default.conf
       - ./server/apache2.conf:/etc/apache2/apache2.conf
       - ./server/php.ini:/usr/local/etc/php/php.ini
+    # networks:
+    #   - pg_network
 
   db:
     image: postgres:latest
@@ -23,8 +25,8 @@ services:
       - "5432:5432"
     volumes:
       - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
-    networks:
-      - pg_network
+    # networks:
+    #   - pg_network
   
   pgadmin:
     image: dpage/pgadmin4:latest
@@ -35,11 +37,11 @@ services:
       PGADMIN_LISTEN_PORT: 80
     ports:
       - "5050:80"
-    networks:
-      - pg_network
-    depends_on:
-      - db
+#     networks:
+#       - pg_network
+#     depends_on:
+#       - db
 
-networks:
-  pg_network:
-    driver: bridge
+# networks:
+#   pg_network:
+#     driver: bridge
