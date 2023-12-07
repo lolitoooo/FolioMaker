@@ -2,88 +2,84 @@
 
 namespace App\Core;
 
+use \PDO;
+use \Exception;
+use ReflectionClass;
+use ReflectionProperty;
+
 class DB
 {
-    public \PDO $conn;
+    protected $bdd;
     public string $table;
 
     public function __construct()
     {
         try {
-            $this->conn = new \PDO("psql:host=db;dbname=foliomakerdb", "foliomakeruser", "foliomakerpsw");
-            echo "Connected successfully <br>";
-        } catch (\PDOException $e) {
-            echo $e->getMessage();
+            $this->bdd = new PDO("pgsql:host=db;port=5432;dbname=foliomakerdb", "foliomakeruser", "foliomakerpsw");
+        } catch (Exception $e) {
+            die('Erreur : ' . $e->getMessage());
         }
     }
 
-    public function tableName(): string
+    public function save(): void
     {
-        // Retourne le nom de la table en fonction du nom de la classe
-        $table = get_called_class();
-        $table = explode("\\", $table);
-        $table = array_pop($table);
-        $table = strtolower($table);
-        $this->table = 'esgi_' . $table;
+        $model = get_called_class();
+        $reflection = new ReflectionClass($model);
+        $properties = $reflection->getProperties(ReflectionProperty::IS_PRIVATE);
 
-        return $this->table;
-    }
+        $modelProperties = [];
 
-    // public function populate(int $id): array
-    // {
-    //     // Populate l'ojet avec les données de la table
-    //     $sql = "SELECT * FROM " . $this->tableName() . " WHERE id = :id";
-    //     $stmt = $this->conn->prepare($sql);
-    //     $stmt->bindValue(':id', $id);
-    //     $stmt->execute();
-    //     $page = $stmt->fetch();
-    
-    //     return $page;
-    // }    
+        foreach ($properties as $property) {
+            $propertyName = $property->getName();
+            $methodName = 'get' . ucfirst($propertyName);
 
-    public function save(array $data, ?int $id): void
-    {
-        // Colonnes de la table
-        $columns = array_keys($data);
-        $values = array_map(fn($value) => $this->conn->quote($value), $data);
-        
-        // Création des placeholders pour les valeurs
-        $placeholders = implode(',', array_fill(0, count($values), '?'));
-        
-        if ($id !== null) {
-            $columns = array_map(fn($column) => $column . ' = ?', $columns);
-            
-            // Création des placeholders pour les valeurs
-            $placeholders = implode(',', $columns);
-            
-            // Préparation de la requête
-            $sql = "UPDATE " . $this->tableName() . " SET " . implode(',', $columns) . " WHERE id = ?";
-            $stmt = $this->conn->prepare($sql);
-        
-            
-            // Liaison des valeurs aux paramètres
-            $i = 1;
-            foreach ($data as $value) {
-                $stmt->bindValue($i++, $value);
+            if ($propertyName === 'isDeleted') {
+                $modelProperties[$propertyName] = $this->$methodName() ? '1' : '0';
+                continue;
             }
-        
-            // Ajout de la liaison pour l'id à la fin
-            $stmt->bindValue($i, $id);
-            
-            $stmt->execute();
-            return;
 
+            $value = $this->$methodName();
+
+            if (is_string($value)) {
+                $value = "'" . str_replace("'", "''", $value) . "'";
+            }
+
+            $modelProperties[$propertyName] = $value;
+        }
+
+        $table = $this->getTableName();
+        $columns = implode(", ", array_keys($modelProperties));
+        $values = implode(", ", array_values($modelProperties));
+        $id = $modelProperties['id'] == 0 ? 0 : $modelProperties['id'];
+
+        if ($id === 0) {
+            $q = "INSERT INTO $table ($columns) VALUES ($values)";
         } else {
-            // Préparation de la requête
-            $sql = "INSERT INTO " . $this->tableName() . " (" . implode(",", $columns) . ") VALUES ($placeholders)";
-            $stmt = $this->conn->prepare($sql);
-            
-            // Liaison des valeurs aux paramètres
-            $i = 1;
-            foreach ($values as $value) {
-                $stmt->bindValue($i++, $value);
+            $fielsUpdate = [];
+            foreach ($modelProperties as $key => $value) {
+                if ($key === 'id') {
+                    continue;
+                }
+
+                $fielsUpdate[] = "$key = $value";
             }
-            $stmt->execute();
+            $q = "". implode(", ", $fielsUpdate) . "";
+            $q = "UPDATE $table SET $q WHERE id = $id";
+        }
+
+        $req = $this->bdd->prepare($q);
+
+        if (!$req->execute()) {
+            $errorInfo = $req->errorInfo();
+            echo "Erreur SQL: {$errorInfo[2]}";
         }
     }
+
+    protected function getTableName(): string
+    {
+        $table = get_called_class();
+        // $table = "esgi_" . $table; PREFIX
+        return strtolower(str_replace("App\\Models\\", "", $table));
+    }
+
 }
