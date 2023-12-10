@@ -5,7 +5,8 @@ namespace App\Controllers;
 use App\Core\View;
 use App\Models\Users;
 
-class Security{
+class Security
+{
 
     public function login(): void
     {
@@ -26,6 +27,5 @@ class Security{
     {
         echo "Register";
     }
-
 
 }
