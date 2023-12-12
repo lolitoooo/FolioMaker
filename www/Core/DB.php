@@ -10,10 +10,10 @@ class DB
     public function __construct()
     {
         //Connexion à la bdd
-        try{
-            $this->pdo = new \PDO("mysql:host=mariadb;dbname=esgi;charset=utf8", "esgi", "esgipwd");
-        }catch (\PDOException $exception){
-            echo "Erreur de connexion à la base de données : ".$exception->getMessage();
+        try {
+            $this->pdo = new PDO("pgsql:host=db;port=5432;dbname=foliomakerdb", "foliomakeruser", "foliomakerpsw");
+        } catch (Exception $e) {
+            die('Erreur : ' . $e->getMessage());
         }
         $table = get_called_class();
         $table = explode("\\", $table);
