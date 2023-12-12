@@ -3,6 +3,7 @@ namespace App\Controllers;
 
 use App\Core\View;
 use App\Forms\Login;
+use App\Forms\Register;
 use App\Models\User;
 
 class Security{
@@ -12,7 +13,7 @@ class Security{
         $form = new Login();
         $configForm = $form->getConfig();
 
-        print_r($_POST);
+
 
         $view = new View("Security/login", "back");
         $view->assign("form", $configForm);
@@ -23,7 +24,11 @@ class Security{
     }
     public function register(): void
     {
-        echo "Register";
+        $form = new Register();
+        $configForm = $form->getConfig();
+
+        $view = new View("Security/register", "back");
+        $view->assign("form", $configForm);
     }
 
 

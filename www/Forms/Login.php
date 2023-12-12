@@ -4,7 +4,6 @@ class Login
 {
 
     public function __construct(){
-
     }
 
     public function getConfig(): array
@@ -15,7 +14,7 @@ class Login
                 "action"=>"",
                 "class"=>"form",
                 "id"=>"form-login",
-                "submit"=>"s'inscrire",
+                "submit"=>"se connecter",
                 "error"=>"Identifiants incorrects"
             ],
             "inputs"=>[
@@ -36,5 +35,4 @@ class Login
             ]
         ];
     }
-
 }
