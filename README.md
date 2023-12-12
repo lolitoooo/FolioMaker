@@ -37,8 +37,6 @@ Il y a trois branches principales dans ce projet :
 
 2. **Develop** : Cette branche est le lieu de développement actif et contient les dernières fonctionnalités et améliorations qui seront incluses dans le prochain déploiement.
 
-3. **Bugfix** : Cette branche est réservée aux corrections des problèmes liés au code.
-4. **Cleanup** : Cette branche est réservée au nettoyage global du code et de la documentation de celui-ci.
 
 ## 3. Branches de Développement
 
@@ -67,10 +65,6 @@ L'architecture des branches ressemble à ceci :
   - S.Bre
   
       dev
-    
-**bugfix**
-
-**cleanup**
 
 
 ## 4. Flux de Travail
