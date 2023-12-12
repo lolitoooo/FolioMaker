@@ -19,8 +19,8 @@ Pour commencer, visitez notre site web **ici** et suivez les instructions pour c
 | Nom | Prénom | Pseudo |
 |:----|:-------|:-------|
 | PENA | Loan | lolitoooo |
-| SANCTIFIÉ | Bre | Monsieur9bre99 |
-| RATIARAY | Lucas | LucasRatiaray |
+| CARON-LABALETTE | Jeremy | Misokka |
+| MOKRAB | Manel | uvsq22101116 |
 | ALLAIN | Maheanuu | Menztel |
 
 # Architecture des Branches Git pour le Projet GitHub

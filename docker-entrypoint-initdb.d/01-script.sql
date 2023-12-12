@@ -7,7 +7,7 @@ CREATE DATABASE foliomakerdb;
 \c foliomakerdb;
 
 -- Créer la table user avec les colonnes id, name, lastname, email, et password
-CREATE TABLE IF NOT EXISTS users (
+CREATE TABLE IF NOT EXISTS esgi_users (
     id SERIAL PRIMARY KEY,
     firstname varchar(25) NOT NULL,
     lastname varchar(25) NOT NULL,

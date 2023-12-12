@@ -1,23 +1,21 @@
 <?php
-
 namespace App\Controllers;
 
 use App\Core\View;
-use App\Models\Users;
+use App\Forms\Login;
+use App\Models\User;
 
-class Security
-{
+class Security{
 
     public function login(): void
     {
-        $myuser = new Users();
-        $myuser->setId(8);
-        $myuser->setFirstname("Loan2");
-        $myuser->setLastname("Pena");
-        $myuser->setEmail("lpena@myges.fr");
-        $myuser->setPassword("Respons11");
-        $myuser->save();
-        new View("Security/login", "back");
+        $form = new Login();
+        $configForm = $form->getConfig();
+
+        print_r($_POST);
+
+        $view = new View("Security/login", "back");
+        $view->assign("form", $configForm);
     }
     public function logout(): void
     {
@@ -27,5 +25,6 @@ class Security
     {
         echo "Register";
     }
+
 
 }
