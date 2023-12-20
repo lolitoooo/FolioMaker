@@ -12,9 +12,10 @@ class Security{
         $form = new Login();
         $configForm = $form->getConfig();
 
-        print_r($_POST);
+        $email = $_POST["email"] ?? null;
+        $password = $_POST["password"] ?? null;
 
-        $view = new View("Security/login", "back");
+        $view = new View("Security/login", "front");
         $view->assign("form", $configForm);
     }
     public function logout(): void
@@ -24,7 +25,6 @@ class Security{
     public function register(): void
     {
         echo "Register";
-    }
-
+    } 
 
 }

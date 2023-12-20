@@ -2,7 +2,7 @@
         action="<?= $config["config"]["action"]??"" ?>"
         method="<?= $config["config"]["method"]??"POST" ?>"
         id="<?= $config["config"]["id"]??"" ?>"
-        class="<?= $config["config"]["class"]??"" ?>"
+        class="<?= $config["config"]["class"]??"a" ?>"
 >
 
     <?php foreach ($config["inputs"] as $name=>$input):?>

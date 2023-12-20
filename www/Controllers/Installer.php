@@ -3,17 +3,18 @@
 namespace App\Controllers;
 
 use App\Core\View;
+use App\Forms\Setup;
 
 class Installer {
 
     public function setup_site(): void
     {
-        new View("Installer/setup_site", "back");
-    }
+        $form = new Setup();
+        $configForm = $form->getConfig();
 
-    public function setup_bdd(): void
-    {
-        new View("Installer/setup_bdd", "back");
+        $view = new View("Installer/setup_site", "back");
+        $view->assign("form", $configForm);
+
     }
 
 }
