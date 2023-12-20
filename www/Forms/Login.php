@@ -13,25 +13,26 @@ class Login
             "config"=>[
                 "method"=>"POST",
                 "action"=>"",
-                "class"=>"form",
+                "class"=>"login",
                 "id"=>"form-login",
                 "submit"=>"s'inscrire",
+                "submitClass"=>"formLoginButton",
                 "error"=>"Identifiants incorrects"
             ],
             "inputs"=>[
-                "email"=>[
-                    "type"=>"email",
+                "username"=>[
+                    "type"=>"text",
                     "id"=>"form-login-email",
                     "required"=>true,
-                    "placeholder"=>"Votre email",
-                    "class"=>"form-input",
+                    "placeholder"=>"Username",
+                    "class"=>"formLoginInput",
                 ],
                 "pwd"=>[
                     "type"=>"password",
                     "id"=>"form-login-pwd",
                     "required"=>true,
                     "placeholder"=>"Votre mot de passe",
-                    "class"=>"form-input",
+                    "class"=>"formLoginInput",
                 ]
             ]
         ];
