@@ -37,49 +37,24 @@ Il y a trois branches principales dans ce projet :
 
 2. **Develop** : Cette branche est le lieu de développement actif et contient les dernières fonctionnalités et améliorations qui seront incluses dans le prochain déploiement.
 
-3. **Bugfix** : Cette branche est réservée aux corrections des problèmes liés au code.
-4. **Cleanup** : Cette branche est réservée au nettoyage global du code et de la documentation de celui-ci.
 
 ## 3. Branches de Développement
 
-Chaque développeur a sa propre branche de travail qui est créée à partir de la branche Develop. Ces branches sont nommées d'après le développeur (par exemple, M.Allain, L.Pena, L.Ratiaray, S.Bre).
-
-Dans chaque branche de développeur, il y a une autre branche appelée **dev**. Cette branche est utilisée pour le développement quotidien et les expérimentations.
+La branche **dev** est utilisée pour le développement quotidien et les expérimentations.
 
 L'architecture des branches ressemble à ceci :
 
-**main**
+- **main**
 
-**develop**
-
-  - M.Allain
-  
-      dev
-    
-  - L.Pena
-  
-      dev
-    
-  - L.Ratiaray
-  
-      dev
-    
-  - S.Bre
-  
-      dev
-    
-**bugfix**
-
-**cleanup**
+- **develop**
 
 
 ## 4. Flux de Travail
 
 Voici le flux de travail typique :
 
-1. Les développeurs travaillent sur leur propre branche **dev**, créant des commits pour chaque modification significative.
+1. Les développeurs travaillent sur la branche **dev**, créant des commits pour chaque modification significative.
 
-2. Lorsqu'un ensemble de fonctionnalités ou de corrections est prêt, le développeur fusionne sa branche **dev** dans sa branche principale (par exemple, M.Allain).
 
 ## 5. Structure des Commits
 
@@ -91,7 +66,6 @@ Pour maintenir une trace claire et lisible des modifications, nous utilisons une
 - **bug** : Signale un bug que vous n'arrivez pas à corriger
 - **clean** : Nettoyage du code
 - **doc** : Des modifications liées à la documentation
-- **test** : A voir ????
 
 
 Le nommage des commits doit suivre ce format : `catégorie: description de la modification`. La description doit être concise et ne pas dépasser 50 caractères. Par exemple, un commit pourrait être nommé `feat: ajout de la fonctionnalité de tri`.
