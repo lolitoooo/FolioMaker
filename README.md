@@ -31,7 +31,7 @@ Ce document décrit l'architecture des branches Git pour notre projet sur GitHub
 
 ## 2. Branches Principales
 
-Il y a trois branches principales dans ce projet :
+Il y a deux branches principales dans ce projet :
 
 1. **Main** : Cette branche contient le code qui est actuellement en production. Tout ce qui est dans cette branche est déployé.
 
@@ -40,31 +40,23 @@ Il y a trois branches principales dans ce projet :
 
 ## 3. Branches de Développement
 
-Chaque développeur a sa propre branche de travail qui est créée à partir de la branche Develop. Ces branches sont nommées d'après le développeur (par exemple, M.Allain, L.Pena, L.Ratiaray, S.Bre).
-
-Dans chaque branche de développeur, il y a une autre branche appelée **dev**. Cette branche est utilisée pour le développement quotidien et les expérimentations.
-
 L'architecture des branches ressemble à ceci :
 
 **main**
 
 **develop**
 
-  - M.Allain
-  
-      dev
+  - features
     
-  - L.Pena
-  
-      dev
+  - refactors
+
+  - fixs
     
-  - L.Ratiaray
-  
-      dev
+  - bugs
+
+  - cleans
     
-  - S.Bre
-  
-      dev
+  - docs
 
 
 ## 4. Flux de Travail
@@ -77,7 +69,7 @@ Voici le flux de travail typique :
 
 ## 5. Structure des Commits
 
-Pour maintenir une trace claire et lisible des modifications, nous utilisons une structure spécifique pour nos messages de commit. Chaque commit appartient à l'une des sept catégories suivantes :
+Pour maintenir une trace claire et lisible des modifications, nous utilisons une structure spécifique pour nos messages de commit. Chaque commit appartient à l'une des six catégories suivantes :
 
 - **feat** : Une nouvelle fonctionnalité
 - **refactor** : Une modification du code qui n'ajoute pas de fonctionnalité ni n'en corrige
@@ -85,7 +77,6 @@ Pour maintenir une trace claire et lisible des modifications, nous utilisons une
 - **bug** : Signale un bug que vous n'arrivez pas à corriger
 - **clean** : Nettoyage du code
 - **doc** : Des modifications liées à la documentation
-- **test** : A voir ????
 
 
 Le nommage des commits doit suivre ce format : `catégorie: description de la modification`. La description doit être concise et ne pas dépasser 50 caractères. Par exemple, un commit pourrait être nommé `feat: ajout de la fonctionnalité de tri`.
