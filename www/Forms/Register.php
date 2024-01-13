@@ -4,8 +4,8 @@ namespace App\Forms;
 
 class Register
 {
-    public function __construct()
-    {
+    public function __construct(){
+
     }
 
     public function getConfig(): array
@@ -26,7 +26,7 @@ class Register
                     "type" => "text",
                     "id" => "form-register-username",
                     "required" => true,
-                    "placeholder" => "Votre nom d'utilisateur",
+                    "placeholder" => "Votre nom d'utilisateur", 
                     "class" => "form-input",
                 ],
                 "email" => [
@@ -48,13 +48,6 @@ class Register
                     "id" => "form-register-confirm-pwd",
                     "required" => true,
                     "placeholder" => "Confirmez votre mot de passe",
-                    "class" => "form-input",
-                ],
-                "additional_field" => [
-                    "type" => "text",
-                    "id" => "form-register-additional-field",
-                    "required" => false,
-                    "placeholder" => "Champ supplémentaire",
                     "class" => "form-input",
                 ],
             ]

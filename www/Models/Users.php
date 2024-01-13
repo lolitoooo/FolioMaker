@@ -13,6 +13,16 @@ class Users extends DB{
     private int $status = 0;
     private bool $isDeleted = false;
 
+    public function __construct() {
+        $this->id = 9; 
+        $this->firstname = '';
+        $this->lastname = '';
+        $this->email = '';
+        $this->password = '';
+        $this->status = 0; 
+        $this->isDeleted = false;
+    }
+
     public function getId(): int {
         return $this->id;
     }
