@@ -22,11 +22,18 @@ class Register
                 "autocomplete" => "on"
             ],
             "inputs" => [
-                "username" => [
-                    "type" => "text",
-                    "id" => "form-register-username",
+                "firstname" => [
+                    "type" => "firstname",
+                    "id" => "form-register-firstname",
                     "required" => true,
-                    "placeholder" => "Votre nom d'utilisateur", 
+                    "placeholder" => "Votre prénom",
+                    "class" => "form-input",
+                ],
+                "lastname" => [
+                    "type" => "lastname",
+                    "id" => "form-register-lastname",
+                    "required" => true,
+                    "placeholder" => "Votre nom",
                     "class" => "form-input",
                 ],
                 "email" => [
