@@ -32,18 +32,15 @@ class Users extends DB{
     $query = $pdo->prepare($sql);
     $query->execute(['email' => $email]);
 
-    // Utilisez fetch() avec PDO::FETCH_ASSOC pour obtenir un tableau associatif
     $user = $query->fetch(PDO::FETCH_ASSOC);
 
     if ($user) {
-        // Créez une nouvelle instance de Users et définissez ses propriétés
         $userModel = new Users();
         $userModel->id = $user['id'];
         $userModel->firstname = $user['firstname'];
         $userModel->lastname = $user['lastname'];
         $userModel->email = $user['email'];
         $userModel->password = $user['password'];
-        // Définissez les autres propriétés au besoin...
 
         return $userModel;
     }

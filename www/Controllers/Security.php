@@ -23,18 +23,14 @@ class Security{
                 // Rechercher l'utilisateur dans la base de données
                 $userModel = Users::findByEmail($email);
 
-                // Ajouter les instructions de débogage ici
-                var_dump($userModel);
                 $hashedPasswordFromDb = $userModel->getPassword();
-                var_dump($hashedPasswordFromDb);
 
                 if ($userModel && password_verify($password, $hashedPasswordFromDb)) {
                     // Authentification réussie
-                    // Vous pouvez stocker des informations sur l'utilisateur dans la session
                     $_SESSION['user_id'] = $userModel->getId();
 
                     // Redirection vers la page d'accueil ou toute autre page après la connexion
-                    header('Location: /register'); // Remplacez "/accueil" par l'URL de votre choix
+                    header('Location: /register'); 
                     exit();
                 } else {
                     // Authentification échouée

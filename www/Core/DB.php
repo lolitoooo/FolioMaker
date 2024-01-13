@@ -41,12 +41,11 @@ class DB
         //Création et execution d'une requête insert SQL
         $childVars = array_unique($this->getChlidVars());
 
-            // Assurez-vous que status et isdeleted ne sont pas vides
         if (empty($childVars['status'])) {
-            $childVars['status'] = 0; // ou une autre valeur par défaut
+            $childVars['status'] = 0; 
         }
         if (empty($childVars['isdeleted'])) {
-            $childVars['isdeleted'] = 0; // ou une autre valeur par défaut
+            $childVars['isdeleted'] = 0; 
         }
         if (empty($this->getId())) {
             echo "insert";
