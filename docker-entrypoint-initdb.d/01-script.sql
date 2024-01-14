@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS esgi_users (
 );
 
 -- Insérer 5 enregistrements avec des noms, prénoms, emails et mots de passe fictifs
-INSERT INTO users (firstname, lastname, email, password) VALUES
+INSERT INTO esgi_users (firstname, lastname, email, password) VALUES
     ('John', 'Doe', 'john.doe@example.com', 'motdepasse1'),
     ('Jane', 'Smith', 'jane.smith@example.com', 'motdepasse2'),
     ('Alice', 'Johnson', 'alice.johnson@example.com', 'motdepasse3'),

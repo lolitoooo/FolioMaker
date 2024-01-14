@@ -2,19 +2,58 @@
 
 namespace App\Models;
 use App\Core\DB;
+use PDO;
 
 class Users extends DB{
 
-    private int $id = 0;
-    private string $firstname;
-    private string $lastname;
-    private string $email;
-    private string $password;
-    private int $status = 0;
-    private bool $isDeleted = false;
 
-    public function getId(): int {
-        return $this->id;
+    public int $id;
+    public string $firstname;
+    public string $lastname;
+    public string $email;
+    public string $password;
+    public int $status = 0;
+    public bool $isDeleted = false;
+
+    public function __construct() {
+        parent::__construct(); 
+        $this->firstname = '';
+        $this->lastname = '';
+        $this->email = '';
+        $this->password = '';
+        $this->status = 0; 
+        $this->isDeleted = false;    
+    }
+
+    public static function findByEmail($email)
+{
+    $pdo = self::getDb();
+    $sql = "SELECT * FROM esgi_users WHERE email = :email";
+    $query = $pdo->prepare($sql);
+    $query->execute(['email' => $email]);
+
+    $user = $query->fetch(PDO::FETCH_ASSOC);
+
+    if ($user) {
+        $userModel = new Users();
+        $userModel->id = $user['id'];
+        $userModel->firstname = $user['firstname'];
+        $userModel->lastname = $user['lastname'];
+        $userModel->email = $user['email'];
+        $userModel->password = $user['password'];
+
+        return $userModel;
+    }
+
+    return null;
+}
+
+    
+
+
+    public function getId(): ?int
+    {
+        return $this->id ?? null;
     }
 
     public function setId(int $id): void {
