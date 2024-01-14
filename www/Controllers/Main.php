@@ -8,7 +8,8 @@ class Main{
 
     public function home(): void
     {
-        new View("Security/login", "login");
+        // new View("Security/login", "login");
+        echo "ceci est la page d'accueil";
     }
 
     public function aboutUs(): void

@@ -30,7 +30,7 @@ class Security{
                     $_SESSION['user_id'] = $userModel->getId();
 
                     // Redirection vers la page d'accueil ou toute autre page après la connexion
-                    header('Location: /register'); 
+                    header('Location: /'); 
                     exit();
                 } else {
                     // Authentification échouée
@@ -46,48 +46,50 @@ class Security{
         $view = new View("Security/login", "back");
         $view->assign("form", $configForm);
     }
+
     public function logout(): void
     {
         echo "Logout";
     }
+
     public function register(): void
-{
-    $form = new Register();
-    $configForm = $form->getConfig();
+    {
+        $form = new Register();
+        $configForm = $form->getConfig();
 
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        // Récupérer les données du formulaire
-        $firstname = $_POST['firstname'] ?? '';
-        $lastname = $_POST['lastname'] ?? '';
-        $email = $_POST['email'] ?? '';
-        $password = $_POST['pwd'] ?? '';
-        $confirmPassword = $_POST['confirm_pwd'] ?? '';
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // Récupérer les données du formulaire
+            $firstname = $_POST['firstname'] ?? '';
+            $lastname = $_POST['lastname'] ?? '';
+            $email = $_POST['email'] ?? '';
+            $password = $_POST['pwd'] ?? '';
+            $confirmPassword = $_POST['confirm_pwd'] ?? '';
 
-        // Afficher les données pour le débogage
-        var_dump($_POST);
+            // Afficher les données pour le débogage
+            var_dump($_POST);
 
-        // Validation (ajustée pour correspondre aux champs disponibles)
-        if ($password === $confirmPassword && !empty($email) && !empty($password)) {
-            // Création de l'utilisateur
-            $userModel = new Users();
-            $userModel->setFirstname($firstname);
-            $userModel->setLastname($lastname);
-            $userModel->setEmail($email);
-            $userModel->setPassword($password);
+            // Validation (ajustée pour correspondre aux champs disponibles)
+            if ($password === $confirmPassword && !empty($email) && !empty($password)) {
+                // Création de l'utilisateur
+                $userModel = new Users();
+                $userModel->setFirstname($firstname);
+                $userModel->setLastname($lastname);
+                $userModel->setEmail($email);
+                $userModel->setPassword($password);
 
-            // Insérer dans la base de données
-            $userModel->save();
-            header('Location: /login');
-            exit;
-        } else {
-            // Gérer l'erreur de confirmation de mot de passe ou de champs vides
-            echo "Erreur de validation";
+                // Insérer dans la base de données
+                $userModel->save();
+                header('Location: /login');
+                exit;
+            } else {
+                // Gérer l'erreur de confirmation de mot de passe ou de champs vides
+                echo "Erreur de validation";
+            }
         }
-    }
 
-    $view = new View("Security/register", "back");
-    $view->assign("form", $configForm);
-}
+        $view = new View("Security/register", "back");
+        $view->assign("form", $configForm);
+    }
 
 
 
