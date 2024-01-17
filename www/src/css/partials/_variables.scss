@@ -3,3 +3,27 @@ $background: #F2F2F2;
 $greenSeaweed: rgba(2, 128, 144, 1);
 $blueQueen: rgba(69, 105, 144, 1);
 $redFire: rgba(244, 91, 105, 1);
+$black: #12100E;
+$darkGrey: #3F3F3F;
+$white: #FFFFFF;
+$lightGrey: #F4F4F4;
+$blue: #256EFF;
+
+:root {
+	/* Couleurs */
+	--white: #{$white};
+	--blue: #{$blue};
+	--blue-darker: #{darken($blue, 10%)};
+	--grey: #{$lightGrey};
+	--grey-darker: #{darken($lightGrey, 10%)};
+	--red: #{$redFire};
+	--red-darker: #{darken($redFire, 10%)};
+    --green: #{$greenSeaweed};
+	--text-color: #{$black};
+	--button-bg-color: #{$black};
+
+	/* Radius */
+	--main-radius: #{rem(6)};
+	/* Fonts */
+	--main-font: #{$font};
+}

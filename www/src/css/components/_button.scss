@@ -1,0 +1,33 @@
+.button {
+    --text-color: var(--white);
+	--text-hover-color: var(--white);
+	display: inline-block;
+	font-family: var(--main-font);
+	color: var(--text-color);
+	text-decoration: none;
+	font-weight: 600;
+	font-size: rem(16);
+	line-height: rem(24);
+	padding: rem(12) rem(24);
+	border-radius: 0;
+	border: none;
+	background-color: var(--black);
+	cursor: pointer;
+    &-primary {
+        border: 1px solid var(--black, #12100E);
+    }
+    &-secondary {
+        border: 1px solid var(--Black, #12100E);
+        background-color: var(--white);
+    }
+    &-borderless {
+        border: none;
+        background-color: var(--white);
+    }
+    &-icon {
+        @include flexbox-inline(row, nowrap, center, center, rem(12));
+    }
+    &-small {
+        padding: rem(8) rem(20);
+    }
+}
