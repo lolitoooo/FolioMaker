@@ -6,6 +6,10 @@
   controller: Main
   action: aboutUs
 
+/components:
+  controller: Main
+  action: components
+
 /login:
   controller: Security
   action: login

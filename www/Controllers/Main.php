@@ -16,4 +16,9 @@ class Main{
         echo "ceci est la page a propos";
     }
 
+    public function components(): void
+    {
+        $view = new View("Main/components", "front");
+    }
+
 }
