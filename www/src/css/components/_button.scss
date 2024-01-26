@@ -17,10 +17,12 @@
         border: 1px solid var(--black, #12100E);
     }
     &-secondary {
-        border: 1px solid var(--Black, #12100E);
+        --text-color: var(--black);
+        border: 1px solid var(--black, #12100E);
         background-color: var(--white);
     }
     &-borderless {
+        --text-color: var(--black);
         border: none;
         background-color: var(--white);
     }

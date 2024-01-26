@@ -11,6 +11,7 @@ $blue: #256EFF;
 
 :root {
 	/* Couleurs */
+    --black: #{$black};
 	--white: #{$white};
 	--blue: #{$blue};
 	--blue-darker: #{darken($blue, 10%)};

@@ -1,0 +1,16 @@
+.input {
+    width: rem(365);
+    padding: rem(12);
+    border: 1px solid var(--black);
+    background: var(--white);
+    &-action {
+        width: rem(18);
+        height: rem(18);
+        &-square {
+            border-radius: 0;
+        }
+        :checked {
+            background-color: var(--black);
+        }
+    }
+}
