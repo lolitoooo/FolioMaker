@@ -23,9 +23,6 @@ class Users extends DB
         return $result;
     }
 
-
-
-
     /**
      * @return int
      */
@@ -96,7 +93,7 @@ class Users extends DB
     /**
      * @return string
      */
-    public function getpassword(): string
+    public function getPassword(): string
     {
         return $this->password;
     }
@@ -104,7 +101,7 @@ class Users extends DB
     /**
      * @param string $password
      */
-    public function setpassword(string $password): void
+    public function setPassword(string $password): void
     {
         $password = password_hash($password, PASSWORD_DEFAULT);
         $this->password = $password;

@@ -26,13 +26,12 @@ class Login
                     "class" => "form-input",
                     "errorMsg" => "Email incorrect"
                 ],
-                "password" => [
-                    "type" => "password",
-                    "id" => "form-login-password",
-                    "required" => true,
-                    "placeholder" => "Votre mot de passe",
-                    "class" => "form-input",
-                    "errorMsg" => "Mot de passe incorrect"
+                "password"=>[
+                    "type"=>"password",
+                    "id"=>"form-login-password",
+                    "required"=>true,
+                    "placeholder"=>"Votre mot de passe",
+                    "class"=>"form-input",
                 ]
             ]
         ];

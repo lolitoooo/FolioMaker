@@ -39,7 +39,6 @@ class Security{
         $view->assign("form", $configForm);
         $view->assign("formErrors", $errors);
     }
-
     public function logout(): void
     {
         echo "Logout";
@@ -50,6 +49,7 @@ class Security{
         $configForm = $form->getConfig();
 
         $errors = [];
+
 
         if ($_SERVER["REQUEST_METHOD"] == $configForm["config"]["method"]) {
             $verificator = new Verificator();
@@ -78,9 +78,4 @@ class Security{
         $view->assign("form", $configForm);
         $view->assign("formErrors", $errors);
     }
-
-
-
-
-
 }
