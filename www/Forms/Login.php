@@ -25,9 +25,9 @@ class Login
                     "placeholder"=>"Votre email",
                     "class"=>"form-input",
                 ],
-                "pwd"=>[
+                "password"=>[
                     "type"=>"password",
-                    "id"=>"form-login-pwd",
+                    "id"=>"form-login-password",
                     "required"=>true,
                     "placeholder"=>"Votre mot de passe",
                     "class"=>"form-input",

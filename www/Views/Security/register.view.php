@@ -1,4 +1,4 @@
 <form method="post">
-    <h2>Register</h2>
-    <?php $this->modal("form", $form) ?>
+    <h2>S'inscrire</h2>
+    <?php $this->modal("form", $form, $formErrors) ?>
 </form>
