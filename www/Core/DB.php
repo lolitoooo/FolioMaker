@@ -49,6 +49,16 @@ class DB
 
     }
 
+    public function getOnByEmail(string $email): bool
+    {
+        $sql = "SELECT * FROM ".$this->table." WHERE email=:email";
+        $query = $this->pdo->prepare($sql);
+        $query->execute(["email"=>$email]);
+        $result = $query->fetch();
+        
+        return $result !== false;
+    }
+
     public static function populate($id): object|int
     {
         return (new static())->getOneBy(["id" => $id], "object");
@@ -78,19 +88,3 @@ class DB
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

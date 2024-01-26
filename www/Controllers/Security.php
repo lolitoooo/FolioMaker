@@ -50,27 +50,26 @@ class Security{
 
         $errors = [];
 
+        if($_SERVER["REQUEST_METHOD"] == $configForm["config"]["method"]){
 
-        if ($_SERVER["REQUEST_METHOD"] == $configForm["config"]["method"]) {
+            $user = new Users();
+            if($user->getOnByEmail($_REQUEST['email'])){
+                $errors[]="Cet email est déjà utilisé";
+            }
+
             $verificator = new Verificator();
-            $verificator->isRegister = true;
-
-            if ($verificator->checkForm($configForm, $_REQUEST, $errors)) {
-                
-                if (Users::findByEmail($_REQUEST['email']) === null) {
-                    
-                    $user = new Users();
-                    $user->setFirstname($_REQUEST['firstname']);
-                    $user->setLastname($_REQUEST['lastname']);
-                    $user->setEmail($_REQUEST['email']);
-                    $user->setPassword($_REQUEST['password']); 
-                    $user->save();
-
-                    header('Location: /'); 
-                    exit();
-                } else {
-                    $errors[] = "L'adresse e-mail est déjà utilisée.";
-                }
+            //Est-ce que les données sont OK
+            if($verificator->checkForm($configForm, $_REQUEST, $errors))
+            {
+                $user = new Users();
+                $user->setFirstname($_REQUEST['firstname']);
+                $user->setLastname($_REQUEST['lastname']);
+                $user->setEmail($_REQUEST['email']);
+                $user->setPassword($_REQUEST['password']);
+                $user->save();
+                session_start();
+                $_SESSION['email'] = $_REQUEST['email'];
+                header('Location: /');
             }
         }
 
