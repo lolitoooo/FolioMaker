@@ -26,6 +26,17 @@ class Verificator
             }
         }
 
+        if(strlen($data['firstname'])<2){
+            $errors[]="Le prénom est trop cours";
+        }
+
+        if($data['firstname'] == $data['lastname']){
+            $errors[]="Le prénon et le nom ne peuvent pas être identiques";
+        }
+
+        if($data['password'] != $data['passwordConfirm']){
+            $errors[]="Les mots de passe ne correspondent pas";
+        }
 
         return empty($errors);
     }

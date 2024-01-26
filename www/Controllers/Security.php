@@ -31,6 +31,12 @@ class Security{
         $errors = [];
 
         if($_SERVER["REQUEST_METHOD"] == $configForm["config"]["method"]){
+
+            $user = new Users();
+            if($user->getOnByEmail($_REQUEST['email'])){
+                $errors[]="Cet email est déjà utilisé";
+            }
+
             $verificator = new Verificator();
             //Est-ce que les données sont OK
             if($verificator->checkForm($configForm, $_REQUEST, $errors))
@@ -41,6 +47,8 @@ class Security{
                 $user->setEmail($_REQUEST['email']);
                 $user->setPassword($_REQUEST['password']);
                 $user->save();
+                session_start();
+                $_SESSION['email'] = $_REQUEST['email'];
                 header('Location: /');
             }
         }
