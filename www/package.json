@@ -4,8 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "sass --watch src/css/main.scss dist/main.css"
+    "dev": "vite",
+    "build": "vite build",
+    "watch": "vite build --watch"
+  },
+  "devDependencies": {
+    "sass": "^1.70.0",
+    "vite": "^5.0.8"
   },
   "author": "",
   "license": "ISC"

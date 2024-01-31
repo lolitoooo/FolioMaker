@@ -9,20 +9,20 @@
             <button class="button button-secondary">Button</button>
             <button class="button button-borderless">Button</button>
             <button class="button button-icon">
-                <img style="width: 1rem; height: 1rem; background: none; filter: invert(100%);" src="../../src/assets/icons/left-arrow.svg" alt="">
+                <img style="width: 1rem; height: 1rem; background: none; filter: invert(100%);" src="../../public/images/left-arrow.svg" alt="">
                 Button
             </button>
             <button class="button button-icon">
                 Button
-                <img style="width: 1rem; height: 1rem; background: none; filter: invert(100%);" src="../../src/assets/icons/right-arrow.svg" alt="">
+                <img style="width: 1rem; height: 1rem; background: none; filter: invert(100%);" src="../../public/images/right-arrow.svg" alt="">
             </button>
             <button class="button button-secondary button-icon">
-                <img style="width: 1rem; height: 1rem; background: none;" src="../../src/assets/icons/left-arrow.svg" alt="">
+                <img style="width: 1rem; height: 1rem; background: none;" src="../../public/images/left-arrow.svg" alt="">
                 Button
             </button>
             <button class="button button-secondary button-icon">
                 Button
-                <img style="width: 1rem; height: 1rem; background: none;" src="../../src/assets/icons/right-arrow.svg" alt="">
+                <img style="width: 1rem; height: 1rem; background: none;" src="../../public/images/right-arrow.svg" alt="">
             </button>
         </div>
     <h4>Small</h4>
@@ -31,20 +31,20 @@
             <button class="button button-secondary button-small">Button</button>
             <button class="button button-borderless button-small">Button</button>
             <button class="button button-icon button-small">
-                <img style="width: 1rem; height: 1rem; background: none; filter: invert(100%);" src="../../src/assets/icons/left-arrow.svg" alt="">
+                <img style="width: 1rem; height: 1rem; background: none; filter: invert(100%);" src="../../public/images/left-arrow.svg" alt="">
                 Button
             </button>
             <button class="button button-icon button-small">
                 Button
-                <img style="width: 1rem; height: 1rem; background: none; filter: invert(100%);" src="../../src/assets/icons/right-arrow.svg" alt="">
+                <img style="width: 1rem; height: 1rem; background: none; filter: invert(100%);" src="../../public/images/right-arrow.svg" alt="">
             </button>
             <button class="button button-secondary button-icon button-small">
-                <img style="width: 1rem; height: 1rem; background: none;" src="../../src/assets/icons/left-arrow.svg" alt="">
+                <img style="width: 1rem; height: 1rem; background: none;" src="../../public/images/left-arrow.svg" alt="">
                 Button
             </button>
             <button class="button button-secondary button-icon button-small">
                 Button
-                <img style="width: 1rem; height: 1rem; background: none;" src="../../src/assets/icons/right-arrow.svg" alt="">
+                <img style="width: 1rem; height: 1rem; background: none;" src="../../public/images/right-arrow.svg" alt="">
             </button>
         </div>
    </div>
