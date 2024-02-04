@@ -91,11 +91,51 @@
 
     <div>
         <h2>Tooltips</h2>
-        <div style="display: flex; flex-direction: column; gap: 1rem">
+            <div style="display: flex; gap: 1rem">
             <div class="tooltip">
-                <p>Hello World it's tooltip</p>
-                <img src="www/src/assets/icons/arrow-bottom.svg" alt="">
+                    <div class="content">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+                        <img class="arrow" src="../../public/images/bottom-arrow.svg" alt="">
+                    </div>
+                    <img src="../../public/images/Info.svg" alt="">
+                </div>
+                <div class="tooltip-right">
+                    <div class="content">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+                        <img class="arrow" src="../../public/images/bottom-arrow.svg" alt="">
+                    </div>
+                    <img src="../../public/images/Info.svg" alt="">
+                </div>
+                <div class="tooltip-top">
+                    <div class="content">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+                        <img class="arrow" src="../../public/images/bottom-arrow.svg" alt="">
+                    </div>
+                    <img src="../../public/images/Info.svg" alt="">
+                </div>
+                <div class="tooltip-top">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+                    <img class="arrow" src="../../public/images/bottom-arrow.svg" alt="">
+                    <img src="../../public/images/Info.svg" alt="">
+                </div>
+                <div class="tooltip-left">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+                    <img class="arrow" src="../../public/images/bottom-arrow.svg" alt="">
+                    <img src="../../public/images/Info.svg" alt="">
+                </div>
             </div>
-        </div>
+    </div>
+
+    <div>
+        <h2>Tooltips image</h2>
+            <div style="display: flex; gap: 1rem">
+                <div class="tooltip">
+                    <div class="content">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+                        <img class="arrow" src="../../public/images/bottom-arrow.svg" alt="">
+                    </div>
+                    <img src="../../public/images/Info.svg" alt="">
+                </div>
+            </div>
     </div>
 </div>

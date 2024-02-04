@@ -37,3 +37,87 @@
 	padding: 0;
 	margin: 0;
 }
+
+@mixin resetP {
+	margin: 0;
+}
+
+@mixin tooltipProperties {
+    position: relative;
+    img {
+            position: relative;
+            width: rem(24);
+            height: rem(24);
+            color: var(--black);
+            background: none;
+        }
+    .content {
+        @include flexbox(column, nowrap, flex-start, center, 0);
+        p {
+            width: rem(240);
+            height: rem(58);
+            padding: rem(8) rem(12);
+            @include flexbox(row, nowrap, center, center, 0);
+            @include resetP;
+            text-align: center;
+            font-size: rem(14);
+            line-height: 150%;
+            color: var(--white);
+            background-color: var(--black);
+        }
+    }
+}
+
+@mixin tooltipProperties-bottom {
+    @include tooltipProperties;
+    img {bottom: rem(5);}
+    .content {
+        @include flexbox(column, nowrap, flex-start, center, 0);
+        img {
+            bottom: rem(8);
+        }  
+    }
+}
+
+@mixin tooltipProperties-top {
+    @include tooltipProperties;
+    img {top: rem(5);}
+    .content {
+        @include flexbox(column-reverse, nowrap, flex-start, center, 0);
+
+        img {
+            top: rem(8);
+            transform-origin: center;
+			transform: rotate(180deg);
+        }  
+    }
+}
+
+@mixin tooltipProperties-right {
+    @include tooltipProperties;
+    img {left: rem(5);}
+    .content {
+        @include flexbox-inline(row-reverse, nowrap, normal, center, 0);
+        img {
+            left: rem(8);
+            transform-origin: center;
+            transform: rotate(90deg);
+        }  
+    }
+}
+
+@mixin tooltipProperties-left {
+    @include tooltipProperties;
+    img {
+        &:first-of-type {
+            position: relative;
+			right: rem(8);
+			transform-origin: center;
+			transform: rotate(-90deg);
+        }
+        &:last-of-type {
+            position: relative;
+            right: rem(5);
+        }
+    }
+}

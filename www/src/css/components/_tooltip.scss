@@ -1,19 +1,17 @@
 .tooltip {
-    width: rem(240);
-    padding: rem(8) rem(12);
-    @include flexbox(column, nowrap, flex-end, center, rem(4));
-    color: var(--white);
-    background-color: var(--black);
-    p {
-        align-self: flex-start;
-        font-size: rem(14);
-        line-height: 150%;
-        background: none;
+    @include tooltipProperties-bottom;
+    @include flexbox(column, nowrap, flex-start, center, 0);
+    
+    &-right {
+        @include tooltipProperties-right;
+        @include flexbox-inline(row-reverse, nowrap, normal, center, 0);
     }
-    img {
-        width: rem(12);
-        height: rem(6);
+    &-top {
+        @include tooltipProperties-top;
+        @include flexbox(column-reverse, nowrap, flex-start, center, 0);
     }
-
-    &-secondary {}
+    &-left {
+        @include tooltipProperties-left;
+        @include flexbox(row, nowrap, flex-start, center, 0);
+    }
 }
