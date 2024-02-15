@@ -45,8 +45,19 @@ class View
     }
 
     public function __destruct(){
+        $this->data['view'] = $this;
         extract($this->data);
         include $this->template;
     }
+    
+
+    public function isUserLoggedIn(): bool
+    {
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+        return isset($_SESSION['user_id']);
+    }
+
 
 }

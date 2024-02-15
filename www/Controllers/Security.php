@@ -41,8 +41,12 @@ class Security{
     }
     public function logout(): void
     {
-        echo "Logout";
+        $_SESSION = []; 
+        session_destroy();
+        header('Location: /login'); 
+        exit();
     }
+
     public function register(): void
     {
         $form = new Register();

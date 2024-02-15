@@ -4,20 +4,18 @@ namespace App\Controllers;
 
 use App\Core\View;
 
-class Main{
+class Main {
 
-    public function home(): void
-    {
-        echo "ceci est la page d'accueil";
+    public function home(): void {
+        $view = new View("Main/home", "front");
+        $view->assign("isLoggedIn", $view->isUserLoggedIn());
     }
 
-    public function aboutUs(): void
-    {
-        echo "ceci est la page a propos";
+    public function aboutUs(): void {
+        $view = new View("Main/aboutUs", "front");
     }
 
-    public function components(): void
-    {
+    public function components(): void {
         $view = new View("Main/components", "front");
     }
 
