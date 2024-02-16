@@ -8,7 +8,7 @@ class Main{
 
     public function home(): void
     {
-        echo "ceci est la page d'accueil";
+        $view = new View("Main/home", "front");
     }
 
     public function aboutUs(): void

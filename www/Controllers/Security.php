@@ -24,13 +24,12 @@ class Security{
                 $email = $_POST['email'];
                 $password = $_POST['password'];
                 $userModel = Users::findByEmail($email);
-    
-                if (password_verify($password, $userModel->getPassword())) {
+            
+                if ($userModel && !$userModel->isDeleted() && password_verify($password, $userModel->getPassword())) {
+                    // Logique de connexion réussie
                     $_SESSION['user_id'] = $userModel->getId();
                     header('Location: /');
                     exit();
-                } else {
-                    $errors[] = "Mot de passe incorrect.";
                 }
             }
         }
@@ -58,7 +57,7 @@ class Security{
             }
 
             $verificator = new Verificator();
-            //Est-ce que les données sont OK
+
             if($verificator->checkForm($configForm, $_REQUEST, $errors))
             {
                 $user = new Users();
@@ -67,9 +66,8 @@ class Security{
                 $user->setEmail($_REQUEST['email']);
                 $user->setPassword($_REQUEST['password']);
                 $user->save();
-                session_start();
-                $_SESSION['email'] = $_REQUEST['email'];
-                header('Location: /');
+                $_SESSION['user_id'] = $user->getId();
+                header('Location: /login');
             }
         }
 

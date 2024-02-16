@@ -4,9 +4,9 @@ namespace App\Core;
 
 class DB
 {
-    private $pdo;
-    private $prefix = "esgi_";
-    private $table;
+    protected $pdo;
+    protected $prefix = "esgi_";
+    protected $table;
     public function __construct()
     {
         //Connexion à la bdd

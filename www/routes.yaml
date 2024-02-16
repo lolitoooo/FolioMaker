@@ -26,3 +26,11 @@
   controller: Installer
   action: setup_site
 
+/user/edit:
+  controller: User
+  action: update
+
+/user/delete:
+  controller: User
+  action: delete
+
