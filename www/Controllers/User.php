@@ -3,6 +3,7 @@ namespace App\Controllers;
 
 use App\Core\View;
 use App\Models\Users;
+use App\Core\Verificator;
 
 class User {
 
@@ -28,20 +29,29 @@ class User {
         $form = new \App\Forms\UpdateUser();
         $configForm = $form->getConfig();
     
+        $errors = []; // Initialiser le tableau d'erreurs
+    
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $user = new Users();
+            $user->setId($_SESSION['user_id']); // Assurez-vous que l'utilisateur est bien défini
     
-            $user->setId($_SESSION['user_id']); 
+            // Avant de procéder à la mise à jour, vérifier la complexité du nouveau mot de passe si fourni
+            if (!empty($_POST['password']) && !Verificator::checkPassword($_POST['password'])) {
+                $errors['password'] = "Le mot de passe doit contenir au moins 8 caractères, dont une majuscule, une minuscule et un chiffre.";
+            }
     
-            $user->updateUser($_POST); 
-    
-            header('Location: /'); 
-            exit();
+            if (empty($errors)) {
+                $user->updateUser($_POST); // Procéder à la mise à jour si aucune erreur
+                header('Location: /'); // Redirection après mise à jour réussie
+                exit();
+            }
         }
     
         $view = new View("User/edit", "back");
         $view->assign("form", $configForm);
+        $view->assign("formErrors", $errors); // Passer les erreurs à la vue pour affichage
     }
+    
     
     public function delete() {
         $formErrors = []; 
