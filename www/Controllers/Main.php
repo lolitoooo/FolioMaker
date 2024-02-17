@@ -8,7 +8,6 @@ class Main{
 
     public function home(): void
     {
-        echo "ceci est la page d'accueil";
     }
 
     public function aboutUs(): void
@@ -19,6 +18,11 @@ class Main{
     public function components(): void
     {
         $view = new View("Main/components", "front");
+    }
+
+    public function dashboard(): void
+    {
+        $view = new View("Main/dashboard", "back");
     }
 
 }

@@ -42,6 +42,13 @@
 	margin: 0;
 }
 
+@mixin resetLink {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    background: transparent;
+}
+
 @mixin tooltipProperties {
     position: relative;
     img {

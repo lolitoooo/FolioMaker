@@ -1,1 +1,0 @@
-<p>Ceci est la page d'acceuil</p>
