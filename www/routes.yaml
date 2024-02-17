@@ -26,3 +26,6 @@
   controller: Installer
   action: setup_site
 
+/verify_email:
+  controller: Security
+  action: verifyEmail

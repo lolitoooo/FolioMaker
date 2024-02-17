@@ -14,16 +14,17 @@ CREATE TABLE IF NOT EXISTS esgi_users (
     email varchar(320) NOT NULL,
     password varchar(255) NOT NULL,
     status smallint NOT NULL DEFAULT 0,
+    isverif bool NOT NULL DEFAULT false,
     isDeleted smallint NOT NULL DEFAULT 0,
     insertedAt timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updatedAt timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
 -- Insérer 5 enregistrements avec des noms, prénoms, emails et mots de passe fictifs
-INSERT INTO esgi_users (firstname, lastname, email, password) VALUES
-    ('John', 'Doe', 'john.doe@example.com', 'motdepasse1'),
-    ('Jane', 'Smith', 'jane.smith@example.com', 'motdepasse2'),
-    ('Alice', 'Johnson', 'alice.johnson@example.com', 'motdepasse3'),
-    ('Bob', 'Williams', 'bob.williams@example.com', 'motdepasse4'),
-    ('Eve', 'Brown', 'eve.brown@example.com', 'motdepasse5');
+-- INSERT INTO esgi_users (firstname, lastname, email, password) VALUES
+--     ('John', 'Doe', 'john.doe@example.com', 'motdepasse1'),
+--     ('Jane', 'Smith', 'jane.smith@example.com', 'motdepasse2'),
+--     ('Alice', 'Johnson', 'alice.johnson@example.com', 'motdepasse3'),
+--     ('Bob', 'Williams', 'bob.williams@example.com', 'motdepasse4'),
+--     ('Eve', 'Brown', 'eve.brown@example.com', 'motdepasse5');
 
