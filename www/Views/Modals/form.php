@@ -11,7 +11,7 @@
     class="<?= $config["config"]["class"] ?? "" ?>"
 >
     <?php 
-    $hasIndividualSubmitButtons = false; // Ajout d'un indicateur pour les boutons individuels
+    $hasIndividualSubmitButtons = false; 
 
     foreach ($config["inputs"] as $name => $input): ?>
         <div>
@@ -26,7 +26,7 @@
             >
 
             <?php if(isset($input["submitLabel"])): 
-                $hasIndividualSubmitButtons = true; // Si un champ a un bouton individuel, on note cette condition
+                $hasIndividualSubmitButtons = true; 
             ?>
                 <!-- Bouton de soumission spécifique pour ce champ -->
                 <button type="submit" name="action" value="update<?= ucfirst($name) ?>"><?= $input["submitLabel"] ?></button>
@@ -34,7 +34,6 @@
         </div><br>
     <?php endforeach; 
 
-    // Afficher le bouton de soumission général seulement s'il n'y a pas de boutons de soumission individuels
     if (!$hasIndividualSubmitButtons): ?>
         <input type="submit" value="<?= $config["config"]["submit"] ?? "Envoyer" ?>">
     <?php endif; ?>

@@ -38,3 +38,23 @@
   controller: User
   action: delete
 
+/menu/create:
+  controller: Menu
+  action: showAdd
+
+/menu/list:
+  controller: Menu
+  action: list
+
+/menu/edit/{id}:
+  controller: Menu
+  action: showEdit
+
+/menu/update/{id}:
+  controller: Menu
+  action: update
+
+/menu/delete:
+  controller: Menu
+  action: delete
+

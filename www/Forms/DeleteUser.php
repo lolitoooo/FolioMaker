@@ -13,11 +13,11 @@ class DeleteUser
         return [
             "config" => [
                 "method" => "POST",
-                "action" => "", // Assurez-vous que cette route est correctement définie dans votre système de routage
+                "action" => "", 
                 "class" => "form",
                 "id" => "form-delete-user",
                 "submit" => "Supprimer mon compte",
-                "error" => "Erreurs" // Vous pouvez personnaliser le message d'erreur si nécessaire
+                "error" => "Erreurs" 
             ],
             "inputs" => [
                 "confirmation" => [
