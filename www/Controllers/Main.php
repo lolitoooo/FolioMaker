@@ -25,4 +25,9 @@ class Main{
         $view = new View("Main/dashboard", "back");
     }
 
+    public function editor(): void
+    {
+        $view = new View("Main/editor", "editor");
+    }
+
 }

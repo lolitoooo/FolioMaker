@@ -6,6 +6,10 @@
   controller: Main
   action: dashboard
 
+/editor:
+  controller: Main
+  action: editor
+
 /a-propos:
   controller: Main
   action: aboutUs
