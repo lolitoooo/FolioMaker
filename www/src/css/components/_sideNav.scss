@@ -1,0 +1,48 @@
+.side-nav {
+    width: rem(96);
+    height: 100vh;
+    padding: rem(35);
+    @include flexbox(column, nowrap, flex-start, center, 3rem);
+    border-radius: 0px 20px 20px 0px;
+    background-color: #ffff;
+    > img {
+        width: 36px;
+        height: 36px;
+    }
+    > span {
+        width: 70px;
+        height: 1px;
+        border: 1px solid black;
+    }
+    a {
+        position: relative;
+        @include resetLink;
+        i {
+            display: flex;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: transparent;
+        }
+        p {
+            position: absolute;
+            top: 1rem;
+            right: rem(-110);
+            width: 120px;
+            padding: 0.5rem;
+            display: none;
+            text-align: center;
+            background-color: red;
+            color: var(--black);
+            font-weight: 500;
+            background-color: var(--white);
+            border-radius: rem(8);
+        }
+        &:hover> p {
+             display: block;
+        }
+        &:last-of-type {
+            margin-top: auto;
+        }
+    }
+}

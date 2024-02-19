@@ -13,5 +13,9 @@
     "vite": "^5.0.8"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "grapesjs": "^0.21.8",
+    "grapesjs-blocks-basic": "^1.0.2"
+  }
 }

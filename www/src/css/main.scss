@@ -4,6 +4,7 @@
 @import "partials/globals";
 @import "partials/mixins";
 
+/*  components import   */
 @import "components/formInstaller";
 @import "components/formLogin";
 @import "components/formRegister";
@@ -11,3 +12,6 @@
 @import "components/button";
 @import "components/input";
 @import "components/tooltip";
+@import "components/sideNav";
+@import "components/dashboard";
+@import "components/editor";

@@ -1,0 +1,11 @@
+.dashboard {
+    @include flexbox(row, nowrap, flex-start, baseline, 0);
+    .main-content {
+        padding-inline: 1rem; 
+        @include flexbox(column, wrap, flex-start, baseline, 1rem);
+        .intro {
+            width: 100%;
+            border: solid 1px black;
+        }
+    }
+}

@@ -21,4 +21,14 @@ class Main{
         $view = new View("Main/components", "front");
     }
 
+    public function dashboard(): void
+    {
+        $view = new View("Main/dashboard", "back");
+    }
+
+    public function editor(): void
+    {
+        $view = new View("Main/editor", "editor");
+    }
+
 }
