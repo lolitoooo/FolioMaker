@@ -1,5 +1,5 @@
 <?php
-    $message = isset($_GET['message']) ? $_GET['message'] : '';
+    $message = isset($message) ? $message : '';
 ?>
 <!-- Affichage du message selon la situation -->
 <?php if ($message == 'success'): ?>
