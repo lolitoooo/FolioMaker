@@ -93,7 +93,7 @@ class Security{
                 $_SESSION['email'] = $_REQUEST['email'];
                 $_SESSION['user_id'] = $user->getId();
                 $mail = new Mail();
-                $subject = "Vérification de votre adresse e-mail";
+                $subject = "Verification de votre adresse e-mail";
                 $message  ="
                 <html>
                 <body>
@@ -118,8 +118,8 @@ class Security{
 
         $message = '';
 
-        if (isset($_SESSION['email_for_verification'])) {
-            $emailToVerify = $_SESSION['email_for_verification'];
+        if (isset($_SESSION['email'])) {
+            $emailToVerify = $_SESSION['email'];
             $userModel = new Users(); 
 
             if ($userModel->verifyEmail($emailToVerify)) {
