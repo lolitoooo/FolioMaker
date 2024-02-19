@@ -30,6 +30,7 @@
   controller: Installer
   action: setup_site
 
+<<<<<<< HEAD
 /user/edit:
   controller: User
   action: update
@@ -58,3 +59,8 @@
   controller: Menu
   action: delete
 
+=======
+/verify_email:
+  controller: Security
+  action: verifyEmail
+>>>>>>> feature/PHPMAILER

@@ -87,4 +87,39 @@ class DB
         }
     }
 
+    public function login(string $email, string $password): int
+    {
+        $user = $this->getOneBy(["email" => $email], "object");
+    
+        if ($user) {
+            if (password_verify($password, $user->getPassword())) {
+                $_SESSION['user_id'] = $user->getId();
+                $sql = "SELECT isverif FROM " . $this->table . " WHERE email=:email";
+                $query = $this->pdo->prepare($sql);
+                $query->execute(["email" => $email]);
+                $result = $query->fetch();
+    
+                if ($result['isverif'] == 1) {
+                    return 1; // Connexion réussie
+                } else {
+                    return 2; // Compte non vérifié par e-mail
+                }
+            } else {
+                return 3; // Mot de passe incorrect
+            }
+        }
+    
+        return 4; // Adresse e-mail incorrecte
+    }
+
+    public function verifyEmail($emailToVerify): bool
+    {
+        $sql = "UPDATE " . $this->table . " SET isverif = true WHERE email = :email";
+        $query = $this->pdo->prepare($sql);
+        $query->execute(['email' => $emailToVerify]);
+
+        return $query->rowCount() > 0;
+    }
+    
+
 }
