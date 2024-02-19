@@ -32,7 +32,7 @@ class Security{
                     case 1: // Connexion réussie
                         session_start();
                         $_SESSION['email'] = $email;
-                        $_SESSION['user_id'] = $userModel->getId();
+                        $_SESSION['user_id'] = $user->getId();
                         header('Location: /');
                         exit();
                         break;
@@ -120,9 +120,9 @@ class Security{
 
         if (isset($_SESSION['email'])) {
             $emailToVerify = $_SESSION['email'];
-            $userModel = new Users(); 
+            $user = new Users(); 
 
-            if ($userModel->verifyEmail($emailToVerify)) {
+            if ($user->verifyEmail($emailToVerify)) {
                 $message = 'success';
             } else {
                 $message = 'failure';
