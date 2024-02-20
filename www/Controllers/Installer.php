@@ -119,7 +119,7 @@ class Installer {
                 $user->setEmail($_POST["site_email"]);
                 $user->setPassword($_POST["site_password"]);
                 $user->setStatus(1);
-                // $user->save();
+                $user->save();
                 session_start();
                 $_SESSION['email'] = $_POST["site_email"];
                 $_SESSION['user_id'] = $user->getId();
