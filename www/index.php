@@ -2,6 +2,8 @@
 
 namespace App;
 
+session_start();
+
 spl_autoload_register("App\myAutoloader");
 function myAutoloader($class)
 {

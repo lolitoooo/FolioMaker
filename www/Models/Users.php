@@ -23,6 +23,14 @@ class Users extends DB
         return $result;
     }
 
+    public function getAll(): array
+    {
+        $sql = "SELECT * FROM " . $this->table . " WHERE isDeleted = 0";
+        $query = $this->pdo->prepare($sql);
+        $query->execute();
+        return $query->fetchAll(\PDO::FETCH_CLASS, self::class);
+    }
+
     /**
      * @return int
      */
@@ -179,9 +187,13 @@ class Users extends DB
     /**
      * @return bool Returns true on success or false on failure.
      */
-    public function softDeleteUser(): void {
+    public function softDeleteUser(): bool {
+        if (empty($this->id)) {
+            return false;
+        }
         $this->isDeleted = 1; // Marquer comme supprimé
         $this->save(); // Sauvegarder le changement
+        return true; // Renvoyer true explicitement
     }
 
     /**

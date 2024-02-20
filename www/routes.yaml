@@ -6,6 +6,10 @@
   controller: Main
   action: dashboard
 
+/editor:
+  controller: Main
+  action: editor
+
 /a-propos:
   controller: Main
   action: aboutUs
@@ -30,13 +34,33 @@
   controller: Installer
   action: setup_site
 
+/user/create:
+  controller: User
+  action: create
+
 /user/edit:
   controller: User
   action: update
 
+/user/editlist:
+  controller: User
+  action: updateList
+
+/user/updateList:
+  controller: User
+  action: updateList
+
 /user/delete:
   controller: User
   action: delete
+
+/user/deletelist:
+  controller: User
+  action: deleteList
+
+/user/list:
+    controller: User
+    action: list
 
 /menu/create:
   controller: Menu
@@ -61,3 +85,4 @@
 /verify_email:
   controller: Security
   action: verifyEmail
+
