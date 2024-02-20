@@ -69,7 +69,7 @@ class Setup
                     "class"=>"form_input",
                 ],
                 "db_password"=>[
-                    "type"=>"password",
+                    "type"=>"text",
                     "id"=>"db_password",
                     "required"=>true,
                     "placeholder"=>"Password",
@@ -81,6 +81,7 @@ class Setup
                     "required"=>true,
                     "placeholder"=>"Host",
                     "class"=>"form_input",
+                    "value"=>"db",
                 ],
                 "table_prefix"=>[
                     "type"=>"text",
@@ -88,6 +89,7 @@ class Setup
                     "required"=>true,
                     "placeholder"=>"Table Prefix",
                     "class"=>"form_input",
+                    "value"=>"esgi",
                 ]
             ]
         ];

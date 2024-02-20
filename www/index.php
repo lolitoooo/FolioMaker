@@ -17,6 +17,15 @@ $uri = strtolower($_SERVER["REQUEST_URI"]);
 $uri = strtok($uri, "?");
 if(strlen($uri )>1) $uri = rtrim($uri, "/");
 
+$config = "./config/config.php";
+if(!file_exists($config)) {
+    if($uri !== "/installer_site") {
+        header("Location: /installer_site");        
+    }
+}
+
+
+
 $fileRoute = "routes.yaml";
 if(file_exists($fileRoute)) {
     $listOfRoutes = yaml_parse_file($fileRoute);
