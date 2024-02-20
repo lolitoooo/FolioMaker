@@ -126,6 +126,22 @@ class Users extends DB
     /**
      * @return bool
      */
+    public function isVerif(): bool
+    {
+        return $this->isVerif;
+    }
+
+    /**
+     * @param bool $isVerif
+     */
+    public function setIsVerif(bool $isVerif): void
+    {
+        $this->isVerif = $isVerif;
+    }
+
+    /**
+     * @return bool
+     */
     public function isDeleted(): int
     {
         return $this->isDeleted;
