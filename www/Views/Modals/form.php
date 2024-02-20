@@ -4,6 +4,8 @@
 </div>
 <?php endif; ?>
 
+<div class="form_container">
+
 <form
     action="<?= $config["config"]["action"] ?? "" ?>"
     method="<?= $config["config"]["method"] ?? "POST" ?>"
@@ -29,12 +31,13 @@
                 $hasIndividualSubmitButtons = true; 
             ?>
                 <!-- Bouton de soumission spécifique pour ce champ -->
-                <button type="submit" name="action" value="update<?= ucfirst($name) ?>"><?= $input["submitLabel"] ?></button>
+                <button class="button" type="submit" name="action" value="update<?= ucfirst($name) ?>"><?= $input["submitLabel"] ?></button>
             <?php endif; ?>
         </div><br>
     <?php endforeach; 
 
     if (!$hasIndividualSubmitButtons): ?>
-        <input type="submit" value="<?= $config["config"]["submit"] ?? "Envoyer" ?>">
+        <input class="button" type="submit" value="<?= $config["config"]["submit"] ?? "Envoyer" ?>">
     <?php endif; ?>
 </form>
+</div>
