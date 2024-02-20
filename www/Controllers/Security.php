@@ -12,10 +12,14 @@ class Security{
 
     public function login(): void
     {
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+        
         $form = new Login();
         $configForm = $form->getConfig();
 
-
+    
         $errors = [];
 
         if ($_SERVER['REQUEST_METHOD'] === $configForm["config"]["method"]) {
@@ -24,13 +28,13 @@ class Security{
             if ($verificator->checkForm($configForm, $_POST, $errors)) {
                 $email = $_POST['email'];
                 $password = $_POST['password'];
-                $user = new Users();
+                $user = Users::findByEmail($email); 
             
                 $loginResult = $user->login($email, $password);
             
                 switch ($loginResult) {
                     case 1: // Connexion réussie
-                        session_start();
+                        
                         $_SESSION['email'] = $email;
                         $_SESSION['user_id'] = $user->getId();
                         header('Location: /');
