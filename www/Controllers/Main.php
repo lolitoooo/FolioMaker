@@ -8,7 +8,8 @@ class Main{
 
     public function home(): void
     {
-        $view = new View("Main/home", "front");
+        $view = new View("Main/home", "back");
+        $view->assign("showSidebar", true);
     }
 
     public function aboutUs(): void

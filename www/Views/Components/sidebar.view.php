@@ -17,9 +17,9 @@
             <i class="fa-solid fa-photo-film"></i>
             <p class="shadow-medium">Médias</p>
         </a>
-        <a href="">
+        <a href="/">
             <i class="fa-solid fa-screwdriver-wrench"></i>
-            <p class="shadow-medium">Outils</p>
+            <p class="shadow-medium">Mon compte</p>
         </a>
         <a href="">
             <i class="fa-solid fa-gear"></i>

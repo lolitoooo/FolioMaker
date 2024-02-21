@@ -1,4 +1,4 @@
 <form method="post">
-    <h2>Se connecter</h2>
-    <?php $this->modal("form", $form, $formErrors) ?>
+    <?php $this->modal("form", $form, $formErrors, "Se connecter"); ?>
+    <p>Vous n'avez pas de compte ? <a href="/register">Inscrivez-vous</a></p>
 </form>

@@ -1,0 +1,128 @@
+body.form-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: transparent;  
+}
+
+.form_container form {
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;  
+}
+
+.background {
+    width: 430px;
+    height: 520px;
+
+}
+.background .shape {
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    border-radius: 50%;
+}
+
+.form_container {
+    position: relative;
+    min-height: auto;
+    width: 400px;
+    background-color: transparent;
+    color: $black;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 10px;
+    border: 1px solid $black;
+    box-shadow: 0 0 40px $black;
+    padding: 50px 35px;
+    display: block;
+    overflow: auto;
+}
+
+.form_container * {
+    font-family: 'Poppins',sans-serif;
+    color: $black;
+    letter-spacing: 0.5px;
+    outline: none;
+    border: none;
+}
+
+.input-container {
+    width: 100%;
+    margin-bottom: 16px;
+    display: flex;
+    flex-direction: column; 
+    background-color: transparent;
+}
+
+.input-container label {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.form-input::placeholder {
+    color: #acb5bd;
+}
+
+.form-input:focus {
+    border-color: $blue;
+}
+
+.form_container h3 {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: $blue;
+}
+
+label {
+    display: block;
+    margin-top: 30px;
+    font-size: 16px;
+    font-weight: 500;
+    background-color: transparent;
+}
+
+.form-input {
+    height: 50px;
+    width: 100%;
+    background-color: #dbd9d9;
+    border-radius: 3px;
+    padding: 0 10px;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 300;
+    color: #000000;
+}
+::placeholder {
+    color: #e5e5e5;
+}
+
+
+.form_container h2 {
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 42px;
+    text-align: center;
+}
+
+.form-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+
+.inscription-link {
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+
