@@ -34,3 +34,7 @@
   controller: Installer
   action: setup_site
 
+/dashboard/pages:
+  controller: Dashboard
+  action: pages
+
