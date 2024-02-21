@@ -16,19 +16,19 @@ class CreateMenu
                     "type" => "text",
                     "placeholder" => "Nom du menu",
                     "required" => true,
-                    "class" => "form-input",
+                    "class" => "input",
                 ],
                 "description" => [
                     "type" => "text",
                     "placeholder" => "Description",
                     "required" => false,
-                    "class" => "form-input",
+                    "class" => "input",
                 ],
                 "content" => [
                     "type" => "text",
                     "placeholder" => "Structure JSON du contenu",
                     "required" => true,
-                    "class" => "form-input",
+                    "class" => "input",
                 ]
             ]
         ];

@@ -13,7 +13,7 @@ class Login
                 "method" => "POST",
                 "action" => "",
                 "class" => "form",
-                "id" => "form-login",
+                "id" => "login",
                 "submit" => "se connecter",
                 "error" => "Identifiants incorrects"
             ],
@@ -23,7 +23,7 @@ class Login
                     "id" => "form-login-email",
                     "required" => true,
                     "placeholder" => "Votre email",
-                    "class" => "form-input",
+                    "class" => "input",
                     "errorMsg" => "Email incorrect"
                 ],
                 "password"=>[
@@ -31,7 +31,7 @@ class Login
                     "id"=>"form-login-password",
                     "required"=>true,
                     "placeholder"=>"Votre mot de passe",
-                    "class"=>"form-input",
+                    "class"=>"input",
                 ]
             ]
         ];

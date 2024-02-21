@@ -2,7 +2,7 @@
         <img src="../../src/assets/logo/LogoFolioMaker.svg" alt="">
         <span></span>
         <a href="/user/list">
-            <i class="fa-solid fa-user"></i>
+            <i class="fa-solid fa-users"></i>
             <p class="shadow-medium">Utilisateurs</p>
         </a>
         <a href="">
@@ -18,7 +18,7 @@
             <p class="shadow-medium">Médias</p>
         </a>
         <a href="/">
-            <i class="fa-solid fa-screwdriver-wrench"></i>
+            <i class="fa-solid fa-user"></i>
             <p class="shadow-medium">Mon compte</p>
         </a>
         <a href="">

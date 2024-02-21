@@ -46,7 +46,7 @@ class User {
         $userModel = new Users();
         $users = $userModel->getAll();
     
-        $view = new View("User/list", "back");
+        $view = new View("User/list", "front");
         $view->assign("users", $users);
         $view->assign("showSidebar", true);
     }
@@ -58,7 +58,7 @@ class User {
         $form = new UpdateUserList($currentUser->getId());
         $configForm = $form->getConfig();
     
-        $view = new View("User/editList", "back");
+        $view = new View("User/editList", "front");
         $view->assign("showSidebar", true);
         $view->assign("form", $configForm);
     }
@@ -89,7 +89,7 @@ class User {
             }
         }
     
-        $view = new View("User/editList", "back");
+        $view = new View("User/editList", "front");
         $view->assign("form", $configForm);
         $view->assign("formErrors", $errors); 
     }

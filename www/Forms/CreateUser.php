@@ -24,21 +24,21 @@ class CreateUser
                     "id"=>"form-register-firstname",
                     "required"=>true,
                     "placeholder"=>"Prénom",
-                    "class"=>"form-input",
+                    "class"=>"input",
                 ],
                 "lastname"=>[
                     "type"=>"text",
                     "id"=>"form-register-lastname",
                     "required"=>true,
                     "placeholder"=>"Nom",
-                    "class"=>"form-input",
+                    "class"=>"input",
                 ],
                 "email"=>[
                     "type"=>"email",
                     "id"=>"form-register-email",
                     "required"=>true,
                     "placeholder"=>"Email",
-                    "class"=>"form-input",
+                    "class"=>"input",
                     "unicity"=>true
                 ],
                 "password"=>[
@@ -46,14 +46,14 @@ class CreateUser
                     "id"=>"form-register-password",
                     "required"=>true,
                     "placeholder"=>"Mot de passe",
-                    "class"=>"form-input",
+                    "class"=>"input",
                 ],
                 "passwordConfirm"=>[
                     "type"=>"password",
                     "id"=>"form-regiser-password-confirm",
                     "required"=>true,
                     "placeholder"=>"Confirmation du mot de passe",
-                    "class"=>"form-input",
+                    "class"=>"input",
                     "confirm"=>"password"
                 ]
             ]

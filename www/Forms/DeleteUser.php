@@ -25,7 +25,7 @@ class DeleteUser
                     "id" => "form-delete-confirmation",
                     "required" => true,
                     "placeholder" => "",
-                    "class" => "form-input",
+                    "class" => "input",
                     "label" => "Je confirme vouloir supprimer mon compte définitivement."
                 ]
             ]

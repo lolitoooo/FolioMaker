@@ -15,15 +15,7 @@
         <title>Back Template</title>
     </head>
     <body>
-    <div class="dashboard">
-        <?php if (isset($showSidebar) && $showSidebar): ?>
-            <?php include 'Views/Components/sidebar.view.php'; ?>
-        <?php endif; ?>
-
-        <!-- <div class="main-content"> -->
-            
-        <!-- </div> -->
-    </div>
+    
     <?php include $this->view;?>
     </body>
 </html>
