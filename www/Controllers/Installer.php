@@ -51,6 +51,7 @@ class Installer {
                 
                 $createTableUser = "CREATE TABLE IF NOT EXISTS ".$config["table_prefix"]."users (id SERIAL PRIMARY KEY,firstname varchar(25) NOT NULL,lastname varchar(25) NOT NULL,email varchar(320) NOT NULL,password varchar(255) NOT NULL,status smallint NOT NULL DEFAULT 0,isverif bool NOT NULL DEFAULT false,isDeleted smallint NOT NULL DEFAULT 0,insertedAt timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,updatedAt timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP);";
                 $createTableMenu = "CREATE TABLE IF NOT EXISTS ".$config["table_prefix"]."menus (id SERIAL PRIMARY KEY,name VARCHAR(255) NOT NULL,description VARCHAR(255),content JSON NOT NULL,created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,deleted_at TIMESTAMP NULL,user_updated_at INT,FOREIGN KEY (user_updated_at) REFERENCES esgi_users(id));";
+                $createTablePage = "CREATE TABLE IF NOT EXISTS ".$config["table_prefix"]."pages (id SERIAL PRIMARY KEY,title varchar(25) NOT NULL,html TEXT NOT NULL,css TEXT NOT NULL,js TEXT NOT NULL,status VARCHAR(80) NOT NULL);";
 
                 // ===== Execute SQL ===== //
                 try {
@@ -89,6 +90,7 @@ class Installer {
                     // Exécuter le script de création de table
                     $pdo->exec($createTableUser);
                     $pdo->exec($createTableMenu);
+                    $pdo->exec($createTablePage);
                 
                 } catch (PDOException $exception) {
                    $errors[] = "Erreur lors de la création de la base de données : ".$exception->getMessage();

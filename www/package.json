@@ -15,7 +15,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "datatables.net-dt": "^2.0.0",
     "grapesjs": "^0.21.8",
-    "grapesjs-blocks-basic": "^1.0.2"
+    "grapesjs-blocks-basic": "^1.0.2",
+    "jquery": "^3.7.1"
   }
 }

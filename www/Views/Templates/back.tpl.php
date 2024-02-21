@@ -20,10 +20,8 @@
             <?php include 'Views/Components/sidebar.view.php'; ?>
         <?php endif; ?>
 
-        <!-- <div class="main-content"> -->
-            
-        <!-- </div> -->
     </div>
     <?php include $this->view;?>
+        <script src="../../dist/js/main.js"></script>
     </body>
 </html>
