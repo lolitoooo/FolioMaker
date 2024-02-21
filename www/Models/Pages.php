@@ -29,7 +29,7 @@ class Pages extends DB {
     /**
      * @return string $title
      */
-    public function gettitle(): string
+    public function getTitle(): string
     {
         return $this->title;
     }
@@ -37,7 +37,7 @@ class Pages extends DB {
     /**
      * @param string $title
      */
-    public function settitle(string $title): void
+    public function setTitle(string $title): void
     {
         $firstname = ucwords(strtolower(trim($title)));
         $this->title = $title;
@@ -46,7 +46,7 @@ class Pages extends DB {
     /**
      * @return string $html
      */
-    public function gethtml(): string
+    public function getHtml(): string
     {
         return $this->html;
     }
@@ -54,7 +54,7 @@ class Pages extends DB {
     /**
      * @param string $html
      */
-    public function sethtml(string $html): void
+    public function setHtml(string $html): void
     {
         $this->html = $html;
     }
@@ -62,7 +62,7 @@ class Pages extends DB {
     /**
      * @return string $css
      */
-    public function getcss(): string
+    public function getCss(): string
     {
         return $this->css;
     }
@@ -70,7 +70,7 @@ class Pages extends DB {
     /**
      * @param string $css
      */
-    public function setcss(string $css): void
+    public function setCss(string $css): void
     {
         $this->css = $css;
     }
@@ -78,7 +78,7 @@ class Pages extends DB {
     /**
      * @return string $js
      */
-    public function getjs(): string
+    public function getJs(): string
     {
         return $this->js;
     }
@@ -86,7 +86,7 @@ class Pages extends DB {
     /**
      * @param string $js
      */
-    public function setjs(string $js): void
+    public function setJs(string $js): void
     {
         $this->js = $js;
     }

@@ -6,7 +6,7 @@ const editor = grapesjs.init({
   height: '100vh',
   type: 'remote',
     stepsBeforeSave: 1,        // Store data automatically
-    autoload: true,
+    autoload: false,
     urlStore: 'save.php',
     urlLoad: 'load.php',
     params: { page_id: 11111 },
@@ -23,12 +23,7 @@ const editor = grapesjs.init({
     blocks: {}
   },
 });
-editor.on('storage:load', function(e) {
-  console.log('Loaded ', e);
-})
-editor.on('storage:store', function(e) {
-  console.log('Stored ', e);
-})
+
 const pagesWrapper = document.querySelector('.pages-wrp');
 const pm = editor.Pages;
 
