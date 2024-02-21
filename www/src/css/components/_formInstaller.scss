@@ -2,10 +2,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
   
 .form_installer {
     display: flex;
     flex-direction: column;
-    max-width: 400px;
+    max-width: 23rem;
 }

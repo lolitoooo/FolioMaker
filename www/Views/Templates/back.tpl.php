@@ -20,9 +20,10 @@
             <?php include 'Views/Components/sidebar.view.php'; ?>
         <?php endif; ?>
 
-        <div class="main-content">
-            <?php include $this->view;?>
-        </div>
+        <!-- <div class="main-content"> -->
+            
+        <!-- </div> -->
     </div>
+    <?php include $this->view;?>
     </body>
 </html>
