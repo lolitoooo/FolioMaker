@@ -1,103 +1,18 @@
 .table-container {
-    width: 100%;
-    margin: 2rem;
-    overflow-x: auto;
+    padding: rem(20);
+    font-family: var(--main-font);
 }
 
-/* Style global pour le tableau */
 #userTable {
     width: 100%;
     border-collapse: collapse;
-    margin: 20px 0; /* Ajouter de l'espace autour du tableau */
-    background-color: #24282d; /* Fond sombre pour les cellules de données */
-    color: #fff; /* Écriture blanche */
+    th, td {
+        padding: rem(10);
+        text-align: left;
+        color: $white;
+        background-color: $darkGrey;
+    }
 }
 
-/* Style pour les headers du tableau */
-#userTable thead th {
-    background-color: #2a2e33; /* Nuance de sombre pour les headers */
-    color: #ffffff; /* Écriture blanche pour les headers */
-    border: 1px solid #343a40; /* Bordure pour les headers */
-}
 
-#userTable tbody td {
-    background-color: #2e3338; /* Fond des cellules de données */
-    color: white; /* Texte en blanc pour les cellules de données */
-    border-bottom: 1px solid #343a40; /* Bordure en bas des cellules pour les séparer */
-}
-/* Style global pour le tableau */
-#userTable {
-    border-collapse: collapse;
-    width: 100%;
-    background-color: #343a40; /* Fond sombre pour le tableau */
-    color: #fff; /* Écriture blanche */
-}
 
-/* Style pour les headers du tableau */
-#userTable thead th {
-    background-color: #454d55; /* Nuance de sombre pour les headers */
-    color: #ffffff; /* Écriture blanche pour les headers */
-    border: 1px solid #565e65; /* Bordure pour les headers */
-}
-
-/* Style pour les cellules du tableau */
-#userTable td {
-    border: 1px solid #565e65; /* Bordure pour les cellules */
-    padding: 8px;
-}
-
-/* Style pour les liens d'action */
-#userTable a {
-    color: #17a2b8; /* Couleur pour les liens, ici un bleu clair pour contraster avec le fond sombre */
-    padding: 3px 6px;
-    border-radius: 5px;
-    background-color: #454d55; /* Fond pour les liens */
-    transition: background-color 0.3s ease-in-out;
-}
-
-#userTable a:hover {
-    background-color: #5a6268; /* Changement de fond au survol */
-    color: #d1ecf1; /* Changement de couleur de texte au survol */
-}
-
-/* Style pour les lignes alternées du tableau pour améliorer la lecture */
-#userTable tbody tr:nth-child(odd) {
-    background-color: #3c434a; /* Fond pour les lignes impaires */
-}
-
-#userTable tbody tr:nth-child(even) {
-    background-color: #343a40; /* Fond pour les lignes paires */
-}
-
-/* Style pour les lignes au survol */
-#userTable tbody tr:hover {
-    background-color: #2a2e33; /* Fond au survol */
-}
-
-/* Style pour la pagination et le contrôle de la longueur */
-.dataTables_wrapper .dataTables_paginate .paginate_button,
-.dataTables_wrapper .dataTables_length select {
-    color: #fff; /* Écriture blanche */
-    background-color: #454d55; /* Fond sombre */
-    border: 1px solid #565e65; /* Bordure sombre */
-}
-
-.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
-    background-color: #5a6268; /* Fond au survol */
-    border-color: #6c757d; /* Bordure au survol */
-}
-
-/* Modifier la couleur du texte dans les inputs de recherche et de longueur */
-.dataTables_wrapper .dataTables_filter input,
-.dataTables_wrapper .dataTables_length select {
-    background-color: #343a40; /* Fond sombre */
-    color: #fff; /* Écriture blanche */
-    border: 1px solid #565e65; /* Bordure sombre */
-}
-
-/* Modifier la couleur de fond pour les inputs au focus */
-.dataTables_wrapper .dataTables_filter input:focus,
-.dataTables_wrapper .dataTables_length select:focus {
-    background-color: #3c434a; /* Fond au focus */
-    border-color: #17a2b8; /* Bordure au focus */
-}

@@ -17,12 +17,12 @@
                     <td><?= $user->getLastname() ?></td>
                     <td><?= $user->getEmail() ?></td>
                     <td>
-                        <form method="GET" action="/user/editList">
-                            <input type="hidden" name="id" value="<?= $user->getId() ?>">
-                            <button type="submit" class="button button-secondary">Modifier</button>
-                        </form>
-                        <!-- Modifier pour chaque utilisateur dans la boucle -->
-                        <button class="button button-borderless" data-id="<?= $user->getId(); ?>" onclick="confirmDelete(this)">Supprimer</button>
+                    <form class="transparant" method="GET" action="/user/editList">
+                        <input type="hidden" name="id" value="<?= $user->getId() ?>">
+                        <button class="button button-secondary w-100" type="submit" >Modifier</button>
+                    </form>
+                    <!-- Modifier pour chaque utilisateur dans la boucle -->
+                    <button class="button primary w-100" data-id="<?= $user->getId(); ?>" onclick="confirmDelete(this)">Supprimer</button>
                     </td>
                 </tr>
             <?php endforeach; ?>
