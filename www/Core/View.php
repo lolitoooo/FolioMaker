@@ -35,7 +35,7 @@ class View
         $this->data[$key]=$value;
     }
 
-    public function modal(string $name, array $config, array $errors = []): void
+    public function modal(string $name, array $config, array $errors = [], string $title = "Sign In"): void
     {
         $modal = "Views/Modals/".$name.".php";
         if(!file_exists($modal)){

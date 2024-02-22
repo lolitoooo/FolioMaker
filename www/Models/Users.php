@@ -8,19 +8,27 @@ class Users extends DB
     protected string $lastname;
     protected string $email;
     protected string $password;
-    protected int $status;
-    protected int $isDeleted;
+    protected int $status = 0;
+    protected int $isDeleted = 0;
 
     public static function findByEmail(string $email): ?self
     {
         $instance = new self();
-        $result = $instance->getOneBy(['email' => $email], 'object');
+        $result = $instance->getOneBy(['email' => $email, 'isDeleted' => 0], 'object');
 
         if ($result === false) {
             return null;
         }
 
         return $result;
+    }
+
+    public function getAll(): array
+    {
+        $sql = "SELECT * FROM " . $this->table . " WHERE isDeleted = 0";
+        $query = $this->pdo->prepare($sql);
+        $query->execute();
+        return $query->fetchAll(\PDO::FETCH_CLASS, self::class);
     }
 
     /**
@@ -126,6 +134,22 @@ class Users extends DB
     /**
      * @return bool
      */
+    public function isVerif(): bool
+    {
+        return $this->isVerif;
+    }
+
+    /**
+     * @param bool $isVerif
+     */
+    public function setIsVerif(bool $isVerif): void
+    {
+        $this->isVerif = $isVerif;
+    }
+
+    /**
+     * @return bool
+     */
     public function isDeleted(): int
     {
         return $this->isDeleted;
@@ -137,6 +161,51 @@ class Users extends DB
     public function setIsDeleted(int $isDeleted): void
     {
         $this->isDeleted = $isDeleted;
+    }
+
+    /**
+     * @param array $data Associative array of user data to update.
+     * @return bool Returns true on success or false on failure.
+     */
+    public function updateUser(array $data): void {
+        if (!empty($data['firstname'])) {
+            $this->firstname = $data['firstname'];
+        }
+        if (!empty($data['lastname'])) {
+            $this->lastname = $data['lastname'];
+        }
+        if (!empty($data['email'])) {
+            $this->email = $data['email'];
+        }
+        if (!empty($data['password'])) {
+            $this->password = password_hash($data['password'], PASSWORD_DEFAULT);
+        }
+        $this->status = $data['status'] ?? $this->status;
+        $this->save();
+    }
+
+    /**
+     * @return bool Returns true on success or false on failure.
+     */
+    public function softDeleteUser(): bool {
+        if (empty($this->id)) {
+            return false;
+        }
+        $this->isDeleted = 1; // Marquer comme supprimé
+        $this->save(); // Sauvegarder le changement
+        return true; // Renvoyer true explicitement
+    }
+
+    /**
+     * @return bool Returns true on success or false on failure.
+     */
+    public function hardDeleteUser(): bool {
+        if (empty($this->id)) {
+            return false; 
+        }
+        $sql = "DELETE FROM ".$this->table." WHERE id = :id";
+        $query = $this->pdo->prepare($sql);
+        return $query->execute(['id' => $this->id]);
     }
 
 

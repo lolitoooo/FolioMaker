@@ -1,17 +1,19 @@
 <?php
 
 namespace App\Core;
+require("config/config.php");
 
 class DB
 {
-    private $pdo;
-    private $prefix = "esgi_";
-    private $table;
+    protected $pdo;
+    protected $prefix = PREFIX;
+    protected $table;
     public function __construct()
     {
+        
         //Connexion à la bdd
         try{
-            $this->pdo = new \PDO("pgsql:host=db;port=5432;dbname=foliomakerdb", "foliomakeruser", "foliomakerpsw");
+            $this->pdo = new \PDO(CONNECT, DB_USER, DB_PASSWORD);
         }catch (\PDOException $exception){
             echo "Erreur de connexion à la base de données : ".$exception->getMessage();
         }
@@ -109,4 +111,38 @@ class DB
     public function lastInsertId(): int {
         return $this->pdo->lastInsertId();
     }
+ 
+    public function login(string $email, string $password): int
+    {
+        $user = $this->getOneBy(["email" => $email], "object");
+    
+        if ($user) {
+            if (password_verify($password, $user->getPassword())) {
+                $_SESSION['user_id'] = $user->getId();
+                $sql = "SELECT isverif FROM " . $this->table . " WHERE email=:email";
+                $query = $this->pdo->prepare($sql);
+                $query->execute(["email" => $email]);
+                $result = $query->fetch();
+    
+                if ($result['isverif'] == 1) {
+                    return 1; // Connexion réussie
+                } else {
+                    return 2; // Compte non vérifié par e-mail
+                }
+            } else {
+                return 3;     // Mot de passe incorrect
+            }
+        }
+        return 4;             // Adresse e-mail incorrecte
+    }
+
+    public function verifyEmail($emailToVerify): bool
+    {
+        $sql = "UPDATE " . $this->table . " SET isverif = true WHERE email = :email";
+        $query = $this->pdo->prepare($sql);
+        $query->execute(['email' => $emailToVerify]);
+
+        return $query->rowCount() > 0;
+    }
+
 }

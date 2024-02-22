@@ -1,0 +1,18 @@
+.table-container {
+    padding: rem(20);
+    font-family: var(--main-font);
+}
+
+#userTable {
+    width: 100%;
+    border-collapse: collapse;
+    th, td {
+        padding: rem(10);
+        text-align: left;
+        color: $white;
+        background-color: $darkGrey;
+    }
+}
+
+
+

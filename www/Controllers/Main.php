@@ -8,6 +8,8 @@ class Main{
 
     public function home(): void
     {
+        $view = new View("Main/home", "front");
+        $view->assign("showSidebar", true);
     }
 
     public function aboutUs(): void
@@ -22,7 +24,13 @@ class Main{
 
     public function dashboard(): void
     {
-        $view = new View("Main/dashboard", "back");
+        $view = new View("Main/dashboard", "front");
+        $view->assign("showSidebar", true);
+    }
+
+    public function sidebar(): void
+    {
+        $view = new View("Components/sidebar", "front");
     }
 
     public function editor(): void
