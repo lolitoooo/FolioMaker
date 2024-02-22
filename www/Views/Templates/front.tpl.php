@@ -9,5 +9,7 @@
     <body>
         <img src="../../src/assets/logo/LogoAllFolioMaker.svg" alt="Logo" width="300px">
         <?php include $this->view;?>
+        <script src="../../dist/js/main.js"></script>
+
     </body>
 </html>

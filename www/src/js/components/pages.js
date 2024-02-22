@@ -1,14 +1,15 @@
 const defaultHtml = '<div class="default-block">Contenu par défaut</div>';
 const defaultCss = '.default-block { background-color: #f0f0f0; padding: 20px; }';
-function createDefaultPage() {
+function createDefaultPage(title) {
     const pageData = {
-        title: 'Nouvelle Page',
+        title: `${title}`,
         html: defaultHtml,
         css: defaultCss,
-        js: '' // Vous pouvez ajouter du JavaScript par défaut ici si nécessaire
+        js: '',
+        path: `/${title}` // Vous pouvez ajouter du JavaScript par défaut ici si nécessaire
     };
 
-    fetch('/dashboard/save-page', {
+    fetch('/dashboard/create-page', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -24,5 +25,20 @@ function createDefaultPage() {
     .catch(error => {
         console.error('Erreur :', error);
     });
+}  
+function createPage() {
+    const title = document.getElementById('pageTitle').value;
+    // Assurez-vous que le titre n'est pas vide
+    if (title.trim() === '') {
+        alert('Veuillez entrer un titre pour la page.');
+        return;
+    }
+    createDefaultPage(title);
 }
-    
+
+const createPageBtn = document.getElementById('create-page')
+createPageBtn.addEventListener('click', () => createPage())
+
+function displayPages() {}
+function editPage() {}
+function deletePage () {}

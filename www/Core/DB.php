@@ -87,4 +87,26 @@ class DB
         }
     }
 
+    public function getAll($return = "array"): array|false
+    {
+        $sql = "SELECT * FROM " . $this->table;
+        $query = $this->pdo->prepare($sql);
+        $query->execute();
+
+        if ($return == "object") {
+            $query->setFetchMode(\PDO::FETCH_CLASS, get_called_class());
+        }
+
+        $result = $query->fetchAll();
+
+        if ($result) {
+            return $result;
+        } else {
+            return false;
+        }
+    }
+
+    public function lastInsertId(): int {
+        return $this->pdo->lastInsertId();
+    }
 }

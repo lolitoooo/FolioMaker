@@ -3,13 +3,13 @@
 namespace App\Models;
 use App\Core\DB;
 class Pages extends DB {
-    private int $id = null;
-    private string $title;
-    private string $html;
-    private string $css;
-    private string $js;
-    private string $status;
-
+    private ?int $id = null;
+    protected string $title;
+    protected string $html;
+    protected string $css;
+    protected string $js;
+    protected string $path;
+      
      /**
      * @return int
      */
@@ -39,7 +39,7 @@ class Pages extends DB {
      */
     public function setTitle(string $title): void
     {
-        $firstname = ucwords(strtolower(trim($title)));
+        $title = ucwords(strtolower(trim($title)));
         $this->title = $title;
     }
 
@@ -92,19 +92,19 @@ class Pages extends DB {
     }
 
     /**
-     * @return string $status
+     * @return string $path
      */
-    public function getStatus(): string
+    public function getPath(): string
     {
-        return $this->status;
+        return $this->path;
     }
 
     /**
-     * @param string $status
+     * @param string $path
      */
-    public function setStatus(string $status): void
+    public function setPath(string $path): void
     {
-        $status = strtoupper(trim($status));
-        $this->status = $status;
+        $path = ucwords(strtolower(trim($path)));
+        $this->path = $path;
     }
 }
