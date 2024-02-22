@@ -15,13 +15,13 @@
     </head>
     <body>
         <div class="dashboard">
-        <?php if (isset($showSidebar) && $showSidebar): ?>
-            <?php include 'Views/Components/sidebar.view.php'; ?>
-        <?php endif; ?>
+          <?php if (isset($showSidebar) && $showSidebar): ?>
+              <?php include 'Views/Components/sidebar.view.php'; ?>
+          <?php endif; ?>
 
-        <!-- <div class="main-content"> -->
-        <?php include $this->view;?>
-        <!-- </div> -->
-    </div>
+          <?php include $this->view;?>
+          <script src="../../dist/js/main.js"></script>
+
+      </div>
     </body>
 </html>
