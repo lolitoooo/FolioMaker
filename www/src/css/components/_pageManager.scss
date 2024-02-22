@@ -1,0 +1,30 @@
+.page-manager {
+    max-width: rem(600);
+    margin: 0 auto;
+    padding: rem(20);
+    background-color: #fff;
+    border-radius: rem(5);
+    box-shadow: 0 0 rem(10) rgba(0, 0, 0, 0.1);
+}
+
+.page-manager h1 {
+    font-size: rem(24);
+    margin-bottom: rem(20);
+}
+
+#page-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+#page-list li {
+    margin-bottom: rem(10);
+    padding: rem(10);
+    background-color: #f0f0f0;
+    border-radius: rem(5);
+    cursor: pointer;
+}
+
+#page-list li:hover {
+    background-color: #e0e0e0;
+}

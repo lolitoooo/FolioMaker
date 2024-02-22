@@ -86,3 +86,12 @@
   controller: Security
   action: verifyEmail
 
+/dashboard/pages:
+  controller: Dashboard
+  action: pages
+
+/dashboard/create-page:
+  controller: Page
+  action: createPage
+
+
