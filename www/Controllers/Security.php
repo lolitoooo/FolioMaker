@@ -28,34 +28,39 @@ class Security{
             if ($verificator->checkForm($configForm, $_POST, $errors)) {
                 $email = $_POST['email'];
                 $password = $_POST['password'];
-                $user = Users::findByEmail($email); 
             
-                $loginResult = $user->login($email, $password);
+                if(!$user = Users::findByEmail($email)) {
+                    $errors[] = "Adresse e-mail incorrecte.";
+                    
+                } else {
             
-                switch ($loginResult) {
-                    case 1: // Connexion réussie
-                        
-                        $_SESSION['email'] = $email;
-                        $_SESSION['user_id'] = $user->getId();
-                        header('Location: /');
-                        exit();
-                        break;
-            
-                    case 2: // Compte non vérifié par e-mail
-                        $errors[] = "Compte non vérifié. Veuillez vérifier votre e-mail.";
-                        break;
-            
-                    case 3: // Mot de passe incorrect
-                        $errors[] = "Mot de passe incorrect.";
-                        break;
-            
-                    case 4: // Adresse e-mail incorrecte
-                        $errors[] = "Adresse e-mail incorrecte.";
-                        break;
-            
-                    default:
-                        $errors[] = "Une erreur inattendue s'est produite.";
-                        break;
+                    $loginResult = $user->login($email, $password);
+                
+                    switch ($loginResult) {
+                        case 1: // Connexion réussie
+                            
+                            $_SESSION['email'] = $email;
+                            $_SESSION['user_id'] = $user->getId();
+                            header('Location: /');
+                            exit();
+                            break;
+                
+                        case 2: // Compte non vérifié par e-mail
+                            $errors[] = "Compte non vérifié. Veuillez vérifier votre e-mail.";
+                            break;
+                
+                        case 3: // Mot de passe incorrect
+                            $errors[] = "Mot de passe incorrect.";
+                            break;
+                
+                        case 4: // Adresse e-mail incorrecte
+                            $errors[] = "Adresse e-mail incorrecte.";
+                            break;
+                
+                        default:
+                            $errors[] = "Une erreur inattendue s'est produite.";
+                            break;
+                    }
                 }
             }
             
