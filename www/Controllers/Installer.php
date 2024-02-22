@@ -107,6 +107,7 @@ class Installer {
                     fwrite($file, "\$createDatabase = \"".$createDatabase."\";\n");
                     fwrite($file, "\$createTableUser = \"".$createTableUser."\";\n");
                     fwrite($file, "\$createTableMenu = \"".$createTableMenu."\";\n");
+                    fwrite($file, "\$createTablePage = \"".$createTablePage."\";\n");
                     fclose($file);
                 } else {
                     $errors[] = "Erreur lors de la création du fichier de configuration.";

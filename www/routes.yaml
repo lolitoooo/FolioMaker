@@ -59,8 +59,8 @@
   action: deleteList
 
 /user/list:
-    controller: User
-    action: list
+  controller: User
+  action: list
 
 /menu/create:
   controller: Menu
