@@ -72,7 +72,10 @@ class Security{
     }
     public function logout(): void
     {
-        echo "Logout";
+        $_SESSION = []; 
+        session_destroy();
+        header('Location: /login'); 
+        exit();
     }
     public function register(): void
     {
@@ -142,5 +145,18 @@ class Security{
 
         $view = new View("Mail/verifMail", "back");
         $view->assign("message", $message);
+    }
+
+    public function checkLoginStatus(): void
+    {
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+
+        // If the user is not logged in and is not trying to access the login or register pages
+        if (!isset($_SESSION['user_id']) && $_SERVER['REQUEST_URI'] != '/login' && $_SERVER['REQUEST_URI'] != '/register') {
+            header('Location: /login');
+            exit();
+        }
     }
 }

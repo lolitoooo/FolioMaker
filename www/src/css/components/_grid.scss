@@ -1,0 +1,40 @@
+$col: 12;
+
+.grid {
+    @for $i from 1 through $col {
+        .col-#{$i} {
+            width: calc(100% / 12 * $i);
+        }
+    }
+
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 calc(var(--guther) / -2);
+    }
+
+    [class^="col-"] {
+        padding: 0 calc(var(--guther) / 2);
+    }
+
+    ._1 {
+        background-color: var(--col_1);
+    }
+
+    ._2 {
+        background-color: var(--col_2);
+    }
+
+    ._3 {
+        background-color: var(--col_3);
+    }
+
+    ._4 {
+        background-color: var(--col_4);
+    }
+
+    ._5 {
+        background-color: var(--col_5);
+    }
+    
+}
