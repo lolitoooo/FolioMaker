@@ -94,4 +94,6 @@
   controller: Page
   action: createPage
 
-
+/{path}:
+  controller: Page
+  action: viewPage
